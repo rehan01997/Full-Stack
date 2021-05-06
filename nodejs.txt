@@ -320,3 +320,71 @@ function collapse()
         xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
         xhttp.send();
     </script>
+
+*** Deep Copy ***
+const john = {
+    name: 'John',
+    age: 32,
+    emails: [
+        'john@gmail.com',
+        'john@example.com'
+    ],
+    address: {
+        city: 'Bangalore',
+        pinCode: 560100,
+        region: 'Electronic City'
+    }
+};
+
+const johnCopy = {      //changes in john also
+    ...john // name: john.name, age: john.age, emails: john.emails, address: john.address
+};
+
+johnCopy.age++; // does not affect john.age
+johnCopy.emails.push( 'john@yahoo.com' ); // also affects john.emails       //changes in john also
+johnCopy.address.city = 'Hyderabad'; // also affects john.address           //changes in john also
+
+console.log( johnCopy );
+console.log( john );
+
+console.log("*******************");
+// EXERCISE: Create a "deep copy" -> the copy should have its own array and object for emails and address (respectively)
+const johnDeepCopy = {      //doesnot change in john
+    ...john, // name: john.name, age: john.age, emails: john.emails, address: john.address
+    // name: 'Jonathan'
+    emails: [
+        ...john.emails // john.emails[0], john.emails[1] -> both primitives
+    ],
+    address: {
+        ...john.address
+    }
+};            
+johnDeepCopy.age++;
+johnDeepCopy.emails.push( 'john@microsoft.com' );                // No changes in john
+johnDeepCopy.address.city = 'Mumbai';                            //No changes in john
+
+*** class **
+class Person {
+    // They belong to the class and not objects
+    static sayHello() {
+        console.log( 'Hello' );
+    }
+
+    static defaults = {
+        age: 18,
+        nationality: 'Indian'
+    };
+
+    constructor( name, age = Person.defaults.age, nationality = Person.defaults.nationality ) { // this -> {}
+        this.name = name;
+        this.age = age;
+        this.nationality = nationality;
+
+        // return this;
+    }
+
+    celebrateBirthday() { // context ("this") is the calling object
+        this.age++;
+        // Person.sayHello();
+    }
+}
