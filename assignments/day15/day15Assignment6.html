@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gallery{
+            display: flex;
+            flex-basis: 33%;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery"></div>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        const divDemo = document.querySelector('#gallery');
+        function printAll(x)
+        {
+            x.forEach(element => {
+                const div = document.createElement('div');
+                div.classList.add('.gallery-item');
+                div.style.padding = '10px';
+                div.style.margin = '10px';
+                div.style.textAlign = 'center';
+
+                div.innerHTML = `<img src="${element.imageUrl}" alt="" srcset="">
+                                <h4>${element.name}</h4>
+                                <p><Strong>Description</strong> : ${element.description}</p>
+                                <p><strong>Price</strong> : ${element.Price}</p>
+                                <p><strong>Release Date</strong> : ${element.releaseDate}</p>
+                                <p><strong>Star Rating</strong> : ${element.starRating}</p>`;
+                divDemo.appendChild(div);
+            });
+        }
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {             
+                var obj = JSON.parse(this.response);
+                printAll(obj);
+            }
+            else if( this.status != 0 && this.statusText != 'OK' && this.status != 200)
+            {   
+                divDemo.innerHTML = this.status + " " + this.statusText;
+            }
+        };
+        xhttp.open("GET", "https://awesome-store-server.herokuapp.com/products", true);
+        xhttp.send();
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div {
+                color: crimson;
+                padding: 20px;
+                border: 1px solid black;
+
+                /* what is the "initial" value? It is "transparent". */
+                background-color: yellow;
+            }
+
+            p {
+                /* by default color property is inherited from parent */
+                /* by default padding, border properties are NOT inherited from parent */
+
+                color: initial; /* I do not want to inherit color from my parent */
+                
+                /*padding: 20px;
+                border: 1px solid black;*/
+                
+                /* I wan to explicitly inherit the padding and border of my parent */
+                padding: inherit;
+                border: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos qui quas maiores perferendis beatae ipsum molestias officiis tenetur id tempore. Aspernatur sint sapiente ea modi minus adipisci earum explicabo iusto.
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fugit illo ipsum atque non tempore, dolorem corrupti architecto molestiae minus incidunt maxime neque blanditiis aspernatur rerum ducimus quis ad obcaecati?
+            </p>
+        </div>
+    </body>
+</html>

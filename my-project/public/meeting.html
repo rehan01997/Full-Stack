@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <link rel="stylesheet" href="external/normalize.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/util.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <nav class="navbar1">
+        <ul class="ul-list">
+            <li><button onclick="myFunction()" class="dropbtn">&#9776</button></li>
+            <li id="myDropdown" class="dropdown-content">
+                <a href="index.html">Calender</a>
+                <a href="meeting.html" class="active">Meeting</a>
+                <a href="teams.html">Teams</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="navbar">
+        <a href="index.html">Calender</a>
+        <a href="meeting.html" class="active">Meeting</a>
+        <a href="teams.html">Teams</a>
+        <div class="top-right">
+            <span style="color: grey;">Hello</span>
+            <a href="" style="color: blue;">jane.doe@example.com</a>
+            <a href="" style="padding: 11px;">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h3>Meetings</h3><hr>
+        <div>
+            <a href="meeting.html" class="btn-normal btn-active">Filter/Search Meeting</a>
+            <a href="meeting2.html" class="btn-normal ">Add meeting</a>
+        </div>
+        <div class="search-meeting">
+            <h3 style="color: white;">Search for meetings</h3><hr>
+            <form action="">
+                <div class="mar"><label for="Date">Date</label></div>
+                <select id="date" name="date" class="font-size date-btn">
+                    <option value="all">All</option>
+                    <option value="past">Past</option>
+                    <option value="today">Today</option>                    
+                    <option value="upcoming">Upcoming</option>                    
+                </select>
+                <div class="mar"><label for="search">Search for</label></div>
+                <div class="mar"><input type="text" class="search-btn" placeholder="Search using keywords that describe the meeting"></div>
+                <button type="submit" class="btn-blue">Search</button>
+            </form>
+        </div>
+
+        <div class="row">
+            <h3>Meetings matching search criteria</h3><hr>
+            <div class="column-m">
+                <h4>12 September 2020 <span>06:00 - 07:00</span></h4>
+                <p>Project kickoff</p>
+                <button class="btn-red">Excuse Yourself</button><hr>
+                <h5>Members : <span>john@example.com</span></h5> 
+                <form action="">
+                    <select id="member" name="member" class="font-size">
+                      <option value="member0">Select member</option>
+                      <option value="member1">Member1</option>
+                      <option value="member2">Member2</option>                    
+                    </select>
+                    <input type="submit" class="font-size btn-blue" value="Add">
+                </form>
+            </div>
+            <div class="column-m">
+                <h4>12 September 2020 <span>06:00 - 07:00</span></h4>
+                <p>Project kickoff</p>
+                <button class="btn-red">Excuse Yourself</button><hr>
+                <h5>Members : <span>john@example.com</span></h5> 
+                <form action="">
+                    <select id="member" name="member" class="font-size">
+                      <option value="member0">Select member</option>
+                      <option value="member1">Member1</option>
+                      <option value="member2">Member2</option>                    
+                    </select>
+                    <input type="submit" class="font-size btn-blue" value="Add">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

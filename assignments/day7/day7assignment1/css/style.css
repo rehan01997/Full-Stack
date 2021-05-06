@@ -1,0 +1,82 @@
+.row{
+    display: flex;
+}
+.content{
+    width: 70%;
+    
+}
+.row1
+{
+    display:flex;
+    width :90%;
+}
+.col1 p{
+    margin: 20px;
+}
+.session
+{
+    display: block;
+    height : 75px;
+}
+.session button{
+    margin-top:22px;
+    margin-right: 20px;;
+    float: right;
+}
+.session h2{
+    float : left;
+}
+#search
+{
+    width: 100%;
+}
+.sessRow{
+    display: flex;
+    border: 1px solid lightgrey;
+}
+.sesscol
+{
+    width: 10%;
+}
+.sessCol2
+{
+    width:70%;
+    margin:10px;
+    
+}
+.sessCol2 p{
+    margin:5px;
+}
+.sessCol2 button{
+    margin:5px;
+}
+
+li{
+    list-style: none;
+}
+li>a{
+    text-decoration: none;
+    list-style: none;
+    padding: 10px;
+    color: black;
+}
+.navbar{
+    padding: 10px;
+    display: block;
+    background-color: lightgrey;
+    height: 33px;
+}
+.navbar ul{
+    display: flex;
+}
+.btn-blue{
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 3px;
+    padding: 4px;
+}
+.search{
+    height: 25px;
+    width: 98%;
+    border: 1px solid lightgrey;
+}

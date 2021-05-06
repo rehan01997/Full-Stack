@@ -1,0 +1,18 @@
+.navbar {
+    padding: 1em 0;
+    background-color: #eee;
+}
+
+.navbar a {
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #888;
+}
+
+.navbar a:hover {
+    color: #555;
+}
+
+.navbar a.active {
+    color: #444;
+}

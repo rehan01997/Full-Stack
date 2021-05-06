@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /*
+                "normal flow" of rendering -> the process of the browser picking up elements to render one-after-another based on source order
+            */
+            div {
+                position: static; /* triggers the normal flow of rendering */
+                padding: 1em;
+                border: 1px solid black;
+            }
+
+            div:nth-of-type(1) {
+                background-color: rgba( 255, 128, 128, 0.7 );
+                top: 50px;
+                left: 100px;
+            }
+
+            div:nth-of-type(2) {
+                background-color: rgba( 128, 255, 128, 0.7 );
+            }
+            
+            div:nth-of-type(3) {
+                background-color: rgba( 128, 128, 255, 0.7 );
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate, mollitia possimus obcaecati eligendi nam blanditiis culpa minima magni eum provident eveniet odit saepe, dolores esse expedita. Hic, soluta animi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, ratione magnam? Eos quasi exercitationem dolorum totam, magni at illo, iure odit vitae cupiditate vel similique, error dolor ea aliquam tempora?
+            Fuga voluptates laboriosam ipsa consequuntur adipisci id expedita a, voluptatem earum officia! Dicta nam eos dignissimos explicabo reprehenderit vel aspernatur perferendis et, architecto a voluptas laboriosam. Commodi, consequuntur. Asperiores, facere!
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate, mollitia possimus obcaecati eligendi nam blanditiis culpa minima magni eum provident eveniet odit saepe, dolores esse expedita. Hic, soluta animi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, ratione magnam? Eos quasi exercitationem dolorum totam, magni at illo, iure odit vitae cupiditate vel similique, error dolor ea aliquam tempora?
+            Fuga voluptates laboriosam ipsa consequuntur adipisci id expedita a, voluptatem earum officia! Dicta nam eos dignissimos explicabo reprehenderit vel aspernatur perferendis et, architecto a voluptas laboriosam. Commodi, consequuntur. Asperiores, facere!
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate, mollitia possimus obcaecati eligendi nam blanditiis culpa minima magni eum provident eveniet odit saepe, dolores esse expedita. Hic, soluta animi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, ratione magnam? Eos quasi exercitationem dolorum totam, magni at illo, iure odit vitae cupiditate vel similique, error dolor ea aliquam tempora?
+            Fuga voluptates laboriosam ipsa consequuntur adipisci id expedita a, voluptatem earum officia! Dicta nam eos dignissimos explicabo reprehenderit vel aspernatur perferendis et, architecto a voluptas laboriosam. Commodi, consequuntur. Asperiores, facere!
+        </div>
+    </body>
+</html>

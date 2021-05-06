@@ -1,0 +1,10 @@
+.jumbotron {
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    background-color: #eee;
+    font-size: 2em;
+}
+
+.jumbotron p {
+    line-height: 1.5;
+}

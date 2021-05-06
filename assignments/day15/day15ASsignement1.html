@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id="p-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum nisi commodi, exercitationem distinctio autem ipsam iste officiis iusto sapiente. Hic autem ut maxime dolorem. Ullam quibusdam nemo a tenetur veritatis!</p>
+        <p id="p-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum nisi commodi, exercitationem distinctio autem ipsam iste officiis iusto sapiente. Hic autem ut maxime dolorem. Ullam quibusdam nemo a tenetur veritatis!</p>
+        <p id="p-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum nisi commodi, exercitationem distinctio autem ipsam iste officiis iusto sapiente. Hic autem ut maxime dolorem. Ullam quibusdam nemo a tenetur veritatis!</p>
+    </div>
+    <script>
+        const firPara = document.querySelector('p');
+        const div = document.querySelector('div');
+
+        const newPara = document.createElement('p');
+        const textPara = document.createTextNode('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum nisi commodi, ex');
+        newPara.appendChild(textPara);
+        
+        div.insertBefore(newPara,firPara);
+
+        const newLastPara = document.createElement('p');
+        const textLastPara = document.createTextNode('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum nisi commodi, ex');
+        newLastPara.appendChild(textLastPara);
+        div.appendChild(newLastPara);
+
+        const secondPara = document.getElementById('p-2');
+        console.log(secondPara);
+
+        secondPara.innerHTML = `<span>Replaced Paragraph</span>`;
+
+        const AllPara = document.querySelectorAll('p');
+        console.log(AllPara[2].id); 
+
+        AllPara[2].id = 'newId';
+        AllPara[2].setAttribute("name","FirstName");
+
+        const thirdPara = document.getElementById('p-3');
+        thirdPara.style.backgroundColor = 'crimson';
+        thirdPara.style.color = 'white';
+
+        const newDiv = document.createElement('div');
+        newDiv.style.border = '2px solid black';
+        newDiv.style.padding = '18px';
+        newDiv.style.color = 'olive';
+        thirdPara.appendChild(newDiv);
+        
+    </script>
+    </body>
+</html>

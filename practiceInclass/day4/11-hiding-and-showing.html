@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div:nth-of-type(2) {
+                visibility: hidden; /* visible (default) */
+            }
+            
+            #div-4 {
+                display: none; /* does not get the space on the page (treated as though it never existed on the page) */
+                padding: 1em;
+                background-color: lightgray;
+            }
+
+            div:nth-of-type(6) {
+                opacity: 0.3;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h2>Div 1</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+        <div>
+            <h2>Div 2</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+        <div>
+            <h2>Div 3</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+        <button id="btn-toggle">Toggle</button>
+        <div id="div-4">
+            <h2>Div 4</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+        <div>
+            <h2>Div 5</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+        <div>
+            <h2>Div 6</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+        <div>
+            <h2>Div 7</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+        <div>
+            <h2>Div 8</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+        <div>
+            <h2>Div 9</h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam illo repellendus rerum quos deserunt rem ipsum optio ad aliquid! Unde iste voluptates veritatis possimus porro aspernatur similique, dolores libero voluptas!
+        </div>
+
+        <script>
+            document.getElementById( 'btn-toggle' ).onclick = function() {
+                // alert( 'I was clicked' );
+                const display = document.getElementById( 'div-4' ).style.display;
+
+                if( display === 'none' ) {
+                    document.getElementById( 'div-4' ).style.display = 'block';
+                } else {
+                    document.getElementById( 'div-4' ).style.display = 'none';
+                }
+            };
+        </script>
+    </body>
+</html>

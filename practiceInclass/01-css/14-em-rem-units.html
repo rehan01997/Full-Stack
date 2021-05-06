@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            html {
+                font-size: 12px;
+            }
+
+            body {
+                font-size: 1.2em; /* 1.2 * 12px = 14.4px */
+            }
+
+            .small {
+                /*
+                    px is an absolute unit (pt, cm, mm, in)
+                    96px = 1 inch
+                */
+                font-size: 10px;
+            }
+
+            .em2 {
+                /* 
+                    other units (relative)
+                    em (with respect to inherited value),
+                    rem (with respect to root value),
+                    vh, vw (dimensions - like width, height use this)
+                    % (images, width etc. can use %)
+                */
+                font-size: 2em; /* 2 * inherit = 2 * 14.4px = 28.8px */
+            }
+
+            .rem2 {
+                font-size: 2rem; /* 2 * root element value = 2 * 12px = 24px */
+            }
+        </style>
+    </head>
+    <body>
+        <p class="small">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore laborum iusto recusandae quaerat nam repudiandae ad voluptate possimus, id rerum doloremque quibusdam modi, voluptatibus adipisci natus, et consectetur nemo. Perspiciatis.
+        </p>
+        <p class="em2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam cupiditate iure, delectus autem optio aspernatur. Quia voluptatibus qui eaque tempora error earum placeat, repudiandae corrupti delectus accusamus optio iusto veniam!
+        </p>
+        <p class="rem2">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam illum labore dolore tempore magnam repudiandae, reiciendis earum facilis quibusdam vel dolorem a eaque repellendus iure minima asperiores fuga voluptas quos.
+        </p>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            .parent {
+                display: flex;
+            }
+
+            .child {
+                border: 1px solid black;
+                padding: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            In flex-box, the parent controls the layout of the children
+            Parent can arrange children
+                - row (horizontally lay out children) - default
+                - column (vertically lay out children)
+            Children will adjust size automatically to accommodate other siblings
+        -->
+        <div class="parent">
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae in ipsam minus ab temporibus, sapiente repellendus voluptatibus ratione ipsum eveniet fugit aperiam assumenda tenetur doloremque dolorem possimus. Et, cum explicabo!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vero maiores necessitatibus repellendus! Eaque tenetur veniam incidunt illum praesentium quasi soluta, repudiandae dolores explicabo ducimus! Adipisci, nam aspernatur! Ducimus, quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum veritatis architecto autem. Harum odio non praesentium nostrum labore, veritatis ut perferendis, dolorum accusantium voluptatibus, dolorem aliquam quo laudantium fugit doloremque?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rem iure facere, dolores pariatur veritatis, soluta temporibus aliquam eaque saepe, obcaecati non fugit est velit. Enim obcaecati nobis laboriosam aspernatur.
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Box model</title>
+        <style>
+            body {
+                padding: 30px;
+            }
+
+            div {
+                padding: 1%; /* % of parent element content width */
+                /* width of border CANNOT be specified as a % of parent element content width */
+                border: 1px solid black;
+                /* x y blur spread */
+                box-shadow: 10px -10px 10px 20px lightgray;
+
+                margin: 60px;
+            }
+
+            section {
+                /* box-shadow: 0px 0px 2px 1px goldenrod; */
+                /* a -> alpha / opacity */
+                text-shadow: 1px -1px 3px rgba(245, 11, 58, 0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque expedita non numquam? Quo incidunt voluptate voluptas ratione id ut voluptates eveniet! Eius quaerat beatae esse exercitationem ea ducimus recusandae a?
+        </div>
+        <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate delectus fugit, libero quos repudiandae saepe vero rerum veritatis qui possimus necessitatibus maiores voluptas praesentium, laudantium illo pariatur iure. Expedita, quisquam.
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga nobis accusantium blanditiis eligendi necessitatibus cupiditate rerum temporibus doloribus eveniet, reiciendis eaque delectus facere atque provident sequi recusandae. Culpa, nobis odio!
+        </div>
+
+        <section>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae molestiae, quam inventore ut delectus, fuga quidem, error dolorum facilis blanditiis nemo nisi debitis recusandae optio at enim quae. Ea, mollitia!
+        </section>
+    </body>
+</html>

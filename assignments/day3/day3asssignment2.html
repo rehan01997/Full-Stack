@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day3 Assignment 2</title>
+    <style>
+        main p{
+            font-weight: bold;
+        }
+        main > p{
+            border: 2px solid black;
+        }
+        main > section.s1 > img
+        {
+            display: block;
+            height: 200px;
+            width: 50%;
+            margin: auto;
+        }
+        section > a{
+            font-weight: bold;
+            text-decoration: none;
+        }
+        div.a{
+            color: crimson;
+            background-color: chartreuse;
+        }
+        div.a.b{
+            background-color: darkgrey;
+        }
+        /* The + selector is used to select an element that is directly after another specific element. */
+        div + p{
+            color: blue;
+        }
+        /* Selects every p element that are preceded by a div class="X" element */
+        div.x ~ p{
+            color : goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="s1">
+            <h2>Consultation 1</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque accusamus qui sunt possimus, non culpa iusto reprehenderit impedit ab debitis maiores fugit repudiandae perspiciatis neque autem? Quaerat nam harum obcaecati veniam iure porro cupiditate, at corporis. Voluptatem neque voluptate laboriosam.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png" alt="">
+        </section>
+        <section class="s2">
+            <h2>Consultation 2</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem sit tempora eveniet quod assumenda vitae tenetur, minima qui dolores voluptatibus voluptate possimus, incidunt modi voluptatum alias, eaque unde dignissimos itaque impedit cupiditate! Doloremque amet quis quod vitae ullam incidunt inventore!</p>
+            <a href="https://www.google.com">GOOGLE</a>
+        </section>
+
+        <h2>Consultation 3</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi et facere beatae libero fugiat quo necessitatibus neque laborum voluptatibus, illo rerum error maiores aspernatur iste iusto, amet ex tempore suscipit aperiam veritatis, cupiditate aliquam quisquam sapiente. Eos natus reprehenderit adipisci.</p>
+    
+        <div class="a">
+            <h2>Consultation 4</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias exercitationem odit iure minus dolor voluptate modi aut ipsa, impedit quidem. Unde commodi dolore error nam cum! Illo expedita quibusdam quas saepe esse magnam laborum nam mollitia iusto cum, nesciunt harum?</p>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, rerum!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, necessitatibus.</p>
+        <div class="a b">
+            <h2>Consultation 5</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur alias adipisci dolores facilis illo ex illum nam odit unde placeat consequuntur, iusto vero eaque sunt excepturi deleniti eius. Inventore distinctio cupiditate necessitatibus consequatur adipisci reprehenderit aut dolorem nihil sunt cumque.</p>
+        </div>
+        <p>***********************************************</p>
+        <section>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, voluptatem.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat, ipsam!</p>
+            <div class="x">
+                <p></p>
+            </div>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, blanditiis?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, ipsum.</p>
+        </section>
+    </main>
+</body>
+</html>

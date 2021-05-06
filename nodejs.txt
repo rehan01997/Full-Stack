@@ -1,0 +1,322 @@
+npmjs.com
+
+node --version
+npm init -y
+
+*** cpx ***
+    npm i cpx           tool for copying files
+    npm i --save-dev cpx
+
+    // copy css files to folder public/external
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "nodeversion":"node-version",
+        "copy":"cpx \"node_modules/normalize.css/*.css\" public/external"
+    },
+
+*** live server ***
+    npm i live-server       search another command
+
+    "scripts": {
+        "start": "live-server --open=public --entry-file=index.html"
+    },
+
+cmd : npm start
+
+
+function myFunction() {
+    document.getElementById("container").classList.toggle("show");
+    // document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+    if (!event.target.matches('#container') && !event.target.matches('.input-button')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content ");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+function collapse()
+{
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+}
+</script>
+
+    .hide-flex-item{
+        display : flex;
+    }
+ document.querySelector( '.navbar-toggle' ).onclick = function() {
+                const toggleableMenus = document.querySelectorAll( '.nav-toggleable-menu' );
+
+                for( let i = 0; i < toggleableMenus.length; i++ ) {
+                    toggleableMenus[i].classList.toggle( 'hide-flex-item-on-mobile' );
+                }
+            };
+
+*** Call/apply keyword as with as parameter ***         // apply is more powerfull
+    function foo() {
+        console.log( this );
+    }
+
+    // calls foo function - we can set the context ("this")
+    foo.call({
+        name : 'John',
+        age: 32
+    }); // this -> { name : 'John', age: 32 }
+
+*** Bind ***
+    function foo( x, y, z ) {
+        console.log( 'this = ', this );
+        return this.a + x + y + z;
+    }
+
+    const boundFoo = foo.bind( { a : 1 } );
+    console.log( boundFoo( 1, 2, 3 ) ); // foo.call( { x : 1 }, 1, 2, 3 ); // 7
+
+    // You can pass null as first argument to bind() if you do not want to change the context
+    const boundFoo2 = foo.bind( { a: 100 }, 1, 2 );
+    console.log( boundFoo2( 3 ) ); // foo.call( { x : 100 }, 1, 2, 3 ); // 106
+    console.log( boundFoo2( 4 ) ); // 107
+    console.log( boundFoo2( 5 ) ); // 108
+
+*** Constructor ***         // prototype , new 
+    function Person( name, age ) {
+        console.log( this );
+        this.name = name;
+        this.age = age;
+    }
+
+    // objects created using Person can use methods defined on Person.prototype
+    Person.prototype.celebrateBirthday = function() {
+        this.age++;
+    };
+
+    const john = new Person( 'John', 32 ); // runtime creates an empty object - { }, this -> { }
+    john.celebrateBirthday();
+    console.log( john );
+
+*** substr and substring ***
+    substr( idx , length );
+    substr( from_idx , to_idx );
+
+*** includes and indexof *** 
+    console.log( quote.includes( 'great', 10 ) ); // true       // word , from-idx
+    // console.log( quote.indexOf( 'great' ))
+    console.log( quote.indexOf( 'great', 10 ) );    // index of word after idx 10
+
+*** Math max ***        //does not work with string 
+     Math.max.apply( null, numbers )
+
+*** Validate Form ***
+
+<body>
+        <!--
+            'submit' event fires on the form having the submit button
+        -->
+        <form action="success.html">
+            <span class="error-message"></span>
+            <div class="form-group">
+                <input type="text" placeholder="first name" />
+                <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="middle name" />
+                <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="last name" />
+                <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="email" />
+                <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <!--
+                    'click' event fires on submit button
+                -->
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    
+        <script>
+            const input = document.querySelector( 'input' );
+            const inputs = document.querySelectorAll( 'input[type="text"]' );
+            const email = document.querySelector( 'input[type="email"]' );
+            const form = document.querySelector( 'form' );
+
+            function validateInput() {
+                const errorMessageEl = this.closest( '.form-group' ).querySelector( '.error-message' );
+                let isValid = true;
+
+                if( this.value.trim() === '' ) {
+                    // this.nextElementSibling
+                    // this.parentNode
+
+                    // closest() keeps going up the DOM hierarchy (parent -> grandparent -> ...) till a match for provided CSS selector is found
+                    errorMessageEl.innerHTML = 'This field is required';
+                    isValid = false;
+                } else {
+                    errorMessageEl.innerHTML = '';
+                    isValid = true;
+                }
+
+                return isValid;
+            }
+
+            function validateEmail() {
+                const errorMessageEl = this.closest( '.form-group' ).querySelector( '.error-message' );
+                let isValid = true;
+
+                if( this.value.trim() === '' ) {
+                    errorMessageEl.innerHTML = 'This field is required';
+                    isValid = false;
+                } else if( !( /[A-Za-z_\.]+@gmail\.com/.test( this.value.trim() ) ) ) {
+                    errorMessageEl.innerHTML = 'Only GMail id is allowed';
+                    isValid = false;
+                } else{
+                    errorMessageEl.innerHTML = '';
+                    isValid = true;
+                }
+
+                return isValid;
+            }
+
+            for( let i = 0; i < inputs.length; i++ ) {
+                inputs[i].addEventListener( 'blur', validateInput );
+                inputs[i].addEventListener( 'input', validateInput );
+                email.addEventListener( 'blur', validateEmail );
+                email.addEventListener( 'input', validateEmail );
+            }
+
+            form.addEventListener( 'submit', function( event ) {
+                let isValid = true;
+
+                isValid = isValid && validateInput.call( inputs[0] );
+                isValid = isValid && validateInput.call( inputs[1] );
+                isValid = isValid && validateInput.call( inputs[2] );
+                isValid = isValid && validateEmail.call( email );
+
+                if( !isValid ) {
+                    this.querySelector( '.error-message' ).innerHTML = 'Some of the inputs have errors. Please correct them and try submitting again.';
+                    event.preventDefault();
+                }
+            });
+        </script>   
+
+*** AJAX AXIOS ***  download AXIOS.js
+
+    Ajax : Asynchronous JavaScript and XML
+    Aside: Better called Ajaj - Asynchronous JavaScript and JSON
+
+    <script>
+            (function() {
+                function addWorkshop( workshop ) {
+                    const gallery = document.querySelector('.gallery');
+
+                    const div = document.createElement('div');
+                    div.classList.add('gallery-item');
+
+                    div.innerHTML = `
+                        <h2>${workshop.name}</h2>
+                        <div>${workshop.description}</div>
+                    `;
+
+                    gallery.appendChild(div);
+                }
+
+                function showMessage( message ) {
+                    document.querySelector( '.message' ).textContent = message;
+                    document.querySelector( '.message' ).style.display = 'block';
+                }
+
+                function hideMessage() {
+                    document.querySelector( '.message' ).style.display = 'none';
+                }
+                
+                // fetch( 'https://workshops-server.herokuapp.com/workshops' )
+
+                // 4 Main HTTP request methods
+                // axios.get()
+                // axios.post()
+                // axios.put()
+                // axios.delete()
+
+                // axios.get() returns a "Promise" object (a JS built-in class)
+                // On promises we have the methods - then(), catch()
+                // axios.get() is an async function
+
+                // promise.then( () => {} ) -> Hey promise, when you go into resolved state, please call this function I am passing to you
+                // promise.catch( () => {} ) -> Hey promise, when you go into rejected state, please call this function I am passing to you
+
+                (function init() {
+                    showMessage( `Workshops are being fetched. Hang on!` );
+
+                    axios.get( `https://workshops-server.herokuapp.com/workshops` )
+                        .then(( response ) => {
+                            hideMessage();
+
+                            const workshops = response.data;
+                            workshops.forEach( addWorkshop );
+                        })
+                        .catch(( error ) => {
+                            showMessage( error.message );
+                        });
+                }());
+            }());
+        </script>
+
+*** toggle ***
+    <script>
+          function collapse(x,y){
+              const header = document.getElementById(x).addEventListener('click',function(){
+                    document.getElementById(y).classList.toggle('show');
+              });
+          }
+          document.getElementById('headingOne').addEventListener('click',collapse('headingOne','collapseOne'));
+          document.getElementById('headingTwo').addEventListener('click',collapse('headingTwo','collapseTwo'));
+          document.getElementById('headingThree').addEventListener('click',collapse('headingThree','collapseThree'));
+      </script>
+
+*** AJAX ***
+<div id="demo"></div>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        const divDemo = document.querySelector('#demo');
+        function printAll(x)
+        {
+            x.forEach(element => {
+                const div = document.createElement('div');
+                div.classList.add('demo-item');
+                div.innerHTML = `<h4>${element.title}</h4>    <p>User ID : ${element.userId}  ,  ID : ${element.id}  ,  Is Completed : ${element.completed}</p>`;
+                divDemo.appendChild(div);
+            });
+        }
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("demo").innerHTML =
+                // this.responseText;                
+                var obj = JSON.parse(this.response);
+                printAll(obj);
+                console.log(obj);
+            }
+        };
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
+        xhttp.send();
+    </script>

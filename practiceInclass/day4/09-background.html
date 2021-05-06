@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div {
+                height: 600px;
+                border: 1px solid black;
+            }
+
+            div:nth-of-type(1) {
+                background-image: url( "images/feast-400x400.jpg" );
+                /* background-repeat: no-repeat; */
+            }
+
+            div:nth-of-type(2) {
+                background-image: url( "images/feast-400x400.jpg" );
+                background-size: 100% 100%; /* set both width and height -> aspect ratio is lost */
+            }
+            
+            div:nth-of-type(3) {
+                background-image: url( "images/feast-400x400.jpg" );
+                background-size: 100%; /* some of the height of image is lost / image is repeated vertically */
+            }
+
+            div:nth-of-type(4) {
+                background-image: url( "images/feast-400x400.jpg" );
+                background-size: cover; /* ensures entire element's space is filled without the image being repeated */
+            }
+            
+            div:nth-of-type(5) {
+                background-image: url( "images/feast-400x400.jpg" );
+                background-size: contain; /* ensures that the entire image is visible (the image is made larger / smaller till it hits one pair of opposite edges, and then it is repeated) */
+            }
+
+            div:nth-of-type(6) {
+                background-color: crimson;
+            }
+            
+            div:nth-of-type(6) {
+                background-color: crimson;
+                background-image: url( "images/feast-400x400.jpg" );
+                background-repeat: repeat-y;
+            }
+
+            div:nth-of-type(7) {
+                background-image: url( "images/feast-400x400.jpg" );
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+            }
+            
+            div:nth-of-type(8) {
+                background-image: url( "images/feast-400x400.jpg" );
+                background-position: 50% 50%;
+                background-size: cover;
+            }
+            
+            div:nth-of-type(9) {
+                background-image: url( "images/feast-400x400.jpg" );
+                background-position: 50% 50%;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            div:nth-of-type(9) {
+                background-image: url( "images/feast-400x400.jpg" );
+                opacity: 0.5; /* we can see through the background image to what is behind */
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </body>
+</html>

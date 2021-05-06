@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* 
+                width, padding, maegin - can be given in %
+                border - can be given only in absolute units
+            */
+
+            /* box-sizing property is used to alter the meaning of "width" property */
+            /* 
+                usually "width" = width of content area
+                with box-sizing: border-box, "width" = width of area including border areas
+            */
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .clearfix::after {
+                content: '';
+                display: table;
+                clear: both;
+            }
+
+            .left {
+                float: left;
+                
+                /* content width = 40% - 2% (padding left and right) - 2px (border left and right) */
+                width: 40%;
+
+                padding: 1%;
+                border: 1px solid black;
+                background-color: lightblue;
+            }
+            
+            .right {
+                box-sizing: border-box;
+                float: left;
+
+                /* content width = 60% - 2% (padding left and right) - 2px (border left and right) */
+                width: 60%;
+                
+                padding: 1%;
+                border: 1px solid black;
+                background-color: lightpink;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="clearfix">
+            <div class="left">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aliquid iure minus provident repellendus culpa incidunt quaerat laborum quia perspiciatis, laudantium pariatur ad qui id tenetur officia nesciunt? Assumenda, autem!
+                Ipsum sapiente fugit ipsa, quibusdam incidunt soluta ipsam similique ab nam aliquam architecto perspiciatis aspernatur repudiandae, corporis, laudantium officiis. Impedit dicta similique placeat assumenda, iure aut quo aliquid rem reiciendis!
+            </div>
+            <div class="right">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque in unde quo at reprehenderit nostrum nobis. Deserunt incidunt temporibus deleniti aspernatur ipsa quod, animi minus dolores natus quisquam velit veniam?
+                Harum quis perspiciatis similique, corrupti nisi, sapiente consectetur minima vel sed non modi quia temporibus eos deserunt suscipit optio vitae facere maiores sint expedita quas accusamus quos. Repellendus, enim animi?
+                Corporis eligendi corrupti voluptatibus esse ab, saepe ratione. Deserunt vero aspernatur commodi sit dolorum illum quisquam non. Eius ex amet aliquid, reprehenderit sunt officia facere inventore repellendus perspiciatis hic labore!
+            </div>
+        </div>
+    </body>
+</html>

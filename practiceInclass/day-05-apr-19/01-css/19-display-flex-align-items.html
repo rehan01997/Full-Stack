@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .parent {
+                display: flex;
+                flex-wrap: wrap; /* nowrap (default) */
+                padding: 1em;
+                border: 1px solid crimson;
+            }
+
+            .parent-1 {
+                /* default - children in each line will strecth to fill the height of the line */
+                align-items: stretch;
+            }
+            
+            .parent-2 {
+                /* flex-start - children in each line will be put at the top of the line */
+                align-items: flex-start;
+            }
+            
+            .parent-3 {
+                /* flex-end - children in each line will be put at the bottom of the line */
+                align-items: flex-end;
+            }
+            
+            .parent-4 {
+                /* center - children in each line will be put at the bottom of the line */
+                align-items: center;
+            }
+
+            .child {
+                border: 1px solid black;
+                padding: 1em;
+                
+                flex: 1 0 25%; /* flex-grow flex-shrink (0 -> not allowed) flex-basis */
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            In flex-box, the parent controls the layout of the children
+            Parent can arrange children
+                - row (horizontally lay out children) - default
+                - column (vertically lay out children)
+            Children will adjust size automatically to accommodate other siblings
+        -->
+        <div class="parent parent-1">
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae in ipsam minus ab temporibus, sapiente repellendus voluptatibus ratione ipsum eveniet fugit aperiam assumenda tenetur doloremque dolorem possimus. Et, cum explicabo!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vero maiores necessitatibus repellendus! Eaque tenetur veniam incidunt illum praesentium quasi soluta, repudiandae dolores explicabo ducimus! Adipisci, nam aspernatur! Ducimus, quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum veritatis architecto autem. Harum odio non praesentium nostrum labore, veritatis ut perferendis, dolorum accusantium voluptatibus, dolorem aliquam quo laudantium fugit doloremque?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rem iure facere, dolores pariatur veritatis, soluta temporibus aliquam eaque saepe, obcaecati non fugit est velit. Enim obcaecati nobis laboriosam aspernatur.
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, veniam consequuntur! Exercitationem, facere et! Atque praesentium sint laborum commodi perspiciatis. Vero, odit unde? Molestias voluptatibus neque ab, quasi magni nisi.
+                Maxime illum fuga nemo nihil ea ipsa ullam, impedit, quidem itaque ipsum voluptatum eligendi perspiciatis provident. Numquam aperiam sit sed quos vel commodi hic, quae sequi quasi, at saepe molestias?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+        </div>
+        <div class="parent parent-2">
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae in ipsam minus ab temporibus, sapiente repellendus voluptatibus ratione ipsum eveniet fugit aperiam assumenda tenetur doloremque dolorem possimus. Et, cum explicabo!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vero maiores necessitatibus repellendus! Eaque tenetur veniam incidunt illum praesentium quasi soluta, repudiandae dolores explicabo ducimus! Adipisci, nam aspernatur! Ducimus, quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum veritatis architecto autem. Harum odio non praesentium nostrum labore, veritatis ut perferendis, dolorum accusantium voluptatibus, dolorem aliquam quo laudantium fugit doloremque?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rem iure facere, dolores pariatur veritatis, soluta temporibus aliquam eaque saepe, obcaecati non fugit est velit. Enim obcaecati nobis laboriosam aspernatur.
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, veniam consequuntur! Exercitationem, facere et! Atque praesentium sint laborum commodi perspiciatis. Vero, odit unde? Molestias voluptatibus neque ab, quasi magni nisi.
+                Maxime illum fuga nemo nihil ea ipsa ullam, impedit, quidem itaque ipsum voluptatum eligendi perspiciatis provident. Numquam aperiam sit sed quos vel commodi hic, quae sequi quasi, at saepe molestias?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+        </div>
+        <div class="parent parent-3">
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae in ipsam minus ab temporibus, sapiente repellendus voluptatibus ratione ipsum eveniet fugit aperiam assumenda tenetur doloremque dolorem possimus. Et, cum explicabo!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vero maiores necessitatibus repellendus! Eaque tenetur veniam incidunt illum praesentium quasi soluta, repudiandae dolores explicabo ducimus! Adipisci, nam aspernatur! Ducimus, quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum veritatis architecto autem. Harum odio non praesentium nostrum labore, veritatis ut perferendis, dolorum accusantium voluptatibus, dolorem aliquam quo laudantium fugit doloremque?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rem iure facere, dolores pariatur veritatis, soluta temporibus aliquam eaque saepe, obcaecati non fugit est velit. Enim obcaecati nobis laboriosam aspernatur.
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, veniam consequuntur! Exercitationem, facere et! Atque praesentium sint laborum commodi perspiciatis. Vero, odit unde? Molestias voluptatibus neque ab, quasi magni nisi.
+                Maxime illum fuga nemo nihil ea ipsa ullam, impedit, quidem itaque ipsum voluptatum eligendi perspiciatis provident. Numquam aperiam sit sed quos vel commodi hic, quae sequi quasi, at saepe molestias?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+        </div>
+        <div class="parent parent-4">
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae in ipsam minus ab temporibus, sapiente repellendus voluptatibus ratione ipsum eveniet fugit aperiam assumenda tenetur doloremque dolorem possimus. Et, cum explicabo!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vero maiores necessitatibus repellendus! Eaque tenetur veniam incidunt illum praesentium quasi soluta, repudiandae dolores explicabo ducimus! Adipisci, nam aspernatur! Ducimus, quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum veritatis architecto autem. Harum odio non praesentium nostrum labore, veritatis ut perferendis, dolorum accusantium voluptatibus, dolorem aliquam quo laudantium fugit doloremque?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rem iure facere, dolores pariatur veritatis, soluta temporibus aliquam eaque saepe, obcaecati non fugit est velit. Enim obcaecati nobis laboriosam aspernatur.
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, veniam consequuntur! Exercitationem, facere et! Atque praesentium sint laborum commodi perspiciatis. Vero, odit unde? Molestias voluptatibus neque ab, quasi magni nisi.
+                Maxime illum fuga nemo nihil ea ipsa ullam, impedit, quidem itaque ipsum voluptatum eligendi perspiciatis provident. Numquam aperiam sit sed quos vel commodi hic, quae sequi quasi, at saepe molestias?
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus deserunt debitis eum, fugiat culpa velit error odit a. Neque fugiat voluptatibus possimus, ad laudantium perferendis minima voluptatem cumque illo quisquam!
+            </div>
+        </div>
+    </body>
+</html>

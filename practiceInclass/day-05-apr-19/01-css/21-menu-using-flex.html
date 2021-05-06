@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles/normalize.css">
+        <style>
+            .list-unstyled {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: space-around;
+                background-color: rgb( 250, 250, 251 );
+                font-size: 0.8em;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-search {
+                /* flex-basis: auto helps set all extra space available on this child */
+                flex: 1 1 auto;
+                /* just like align-items, but the child decides how it behaves in the line of flex items */
+                align-self: center;
+                padding: 6px;
+            }
+
+            .nav li {
+                margin-left: 6px;
+                margin-right: 6px;
+            }
+
+            .nav a {
+                padding: 8px 20px;
+                border-radius: 16px;
+                text-decoration: none;
+                color: initial;
+            }
+            
+            .nav a:hover {
+                background-color:rgb( 220, 220, 220 );
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <!-- here -->
+            <ul class="list-unstyled nav">
+                <li>
+                    <img src="images/stackoverflow-logo.png" alt="Stack overflow logo" />
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Products</a>
+                </li>
+                <li>
+                    <a href="#">For Teams</a>
+                </li>
+            </ul>
+            <!-- here -->
+            <input type="search" placeholder="Search..." class="nav-search" />
+            <!-- here -->
+            <ul class="list-unstyled nav">
+                <li>
+                    <button>Log in</button>
+                </li>
+                <li>
+                    <button>Sign in</button>
+                </li>
+            </ul>
+            <!-- here -->
+        </nav>
+    </body>
+</html>

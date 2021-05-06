@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            p {
+                color: navy;
+                color: crimson;
+                font-size: 24px;
+            }
+
+            p {
+                color: olive;
+            }
+        </style>
+        <style>
+            p {
+                color: goldenrod;
+            }
+        </style>
+    </head>
+    <body>
+        <style>
+            p {
+                color: purple;
+            }
+        </style>
+        <!--
+            1. Inline styles are given highest importance
+            2. If all other rules lead to a tie, the order matters ("Last one wins")
+        -->
+        
+        <p style="color: navy;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, similique quam? Blanditiis similique, praesentium officia, sapiente libero esse repudiandae amet aspernatur delectus laudantium modi illum vel quasi cumque accusamus dolor!
+        </p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sunt unde repellat temporibus perferendis nostrum, dignissimos natus iste blanditiis animi similique voluptates molestiae, quibusdam adipisci provident magnam a ea repudiandae.
+        </p>
+
+        <style>
+            p {
+                color: brown;
+            }
+        </style>
+    </body>
+</html>

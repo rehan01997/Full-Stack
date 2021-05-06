@@ -1,0 +1,52 @@
+    
+.panel{
+    border-radius: 2px;
+    margin: 10px;
+}
+.panel-primary{
+    border: 1px solid navy;
+}
+.panel-secondary{
+    border: 1px solid olive;
+}
+.panel-error{
+    border: 1px solid crimson;
+}
+
+.panel-heading {
+    color: white;
+    padding: 5px;
+}
+
+.panel-body{
+    padding-left: 1%;
+}
+.primary{
+    background-color: navy;
+}
+.secondary{
+    background-color: olive;
+}
+.error{
+    background-color: crimson;
+}
+
+ul{
+    list-style: none;
+}
+li{
+    height: 20px;
+    width: 80px;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+li:hover{
+    width: 120px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}

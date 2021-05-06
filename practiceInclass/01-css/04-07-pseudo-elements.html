@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* pseudo element is created as a child of the div */
+            div::before {
+                display: block;
+                content: 'I am a pseudo element created using CSS';
+                color: crimson;
+            }
+
+            div::after {
+                display: block;
+                content: 'And that\'s all';
+                margin: 10px 0;
+                text-align: center;
+                color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <!-- <before></before> -->
+            <!-- ::before -->
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia beatae corrupti expedita enim saepe? Dolores nam nihil harum nemo modi, reprehenderit reiciendis aspernatur, voluptate perferendis, esse similique earum laborum accusantium!
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, reprehenderit voluptates iure vero quo temporibus, tenetur saepe odio soluta a iste mollitia sed alias laborum ducimus id dolorem quidem nulla.
+        </div>
+        <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam velit ipsa dolor aliquam quasi in minima expedita reiciendis numquam rem, cupiditate voluptates, quibusdam recusandae amet suscipit cumque eum necessitatibus inventore.
+        </div>
+    </body>
+</html>

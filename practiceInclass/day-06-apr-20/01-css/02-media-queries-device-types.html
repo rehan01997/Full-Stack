@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .cartoon-character {
+                clear: right;
+                padding: 1px;
+            }
+
+            .cartoon-character h3 {
+                margin-top: 2em;
+            }
+
+            .cartoon-character-image {
+                float: right;
+            }
+
+            /* this applies only for print media, and not for screen */
+            @media print {
+                img {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            Media queries - to conditionally apply CSS (based on device type + features)
+            Device types - print, screen, all
+        -->
+        <header>
+            <h1>50 Most Famous Cartoon Characters</h1>
+            <h2>From Mickey To Yogi</h2>
+        </header>
+        <p>
+            Gotta love cartoon characters. Our list of the 50 most famous cartoon characters, in no particular order:
+        </p>
+        <section class="cartoon-character">
+            <img src="images/Mickey-Mouse.jpeg" class="cartoon-character-image" />
+            <h3>Mickey Mouse</h3>
+            <p>
+                The famous cartoon mouse created by Walt Disney. Originally going to be named Mortimer. Mickey Mouse first appeared in Steamboat Willie. Mickey was one of the first animals to get a star on the Hollywood Walk of Fame. Created in 1928.
+            </p>
+        </section>
+        <section class="cartoon-character">
+            <img src="images/Bugs-Bunny.jpeg" class="cartoon-character-image" />
+            <h3>Bugs Bunny</h3>
+            <p>
+                Possibly the world’s most famous rabbit, and leader of the Looney Tunes. Bugs was one of the first animals to get a star on the Hollywood Walk of Fame (other was Mickey). Not bad for cartoons. Eh… What’s up, doc? Created in 1938.
+            </p>
+        </section>
+    </body>
+</html>

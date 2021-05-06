@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple</title>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn') && !event.target.matches('.input-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .navbar{
+            height: 50px;
+            background-color: black;
+            margin: auto;
+        }
+        .ul-list{
+            list-style: none;
+            display: flex;
+            margin: auto;
+            max-width: 50%;
+            justify-content: space-between;
+        }
+        .icon{
+            padding: 15px;
+            color:white;
+        }
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            width: 50%;
+            max-width: 860px;
+            margin: auto;
+            overflow: hidden;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            background-color: black;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        button.dropbtn{
+            background-image: url('search.png');
+            height: 50px;
+            width: 50px;
+        }
+        .show {display: block;}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="ul-list">
+            <li><img src="apple.png" alt=""></li>
+            <li class="icon">Mac</li>
+            <li class="icon">iPad</li>
+            <li class="icon">iPhone</li>
+            <li class="icon">Watch</li>
+            <li class="icon">TV</li>
+            <li class="icon">Music</li>
+            <li class="icon">Support</li>
+            <li><button onclick="myFunction()" class="dropbtn"></button></li>
+            <li class="icon2"><img src="shop.png" alt=""></li>
+            <li id="myDropdown" class="dropdown-content">
+                <input type="text" class="input-button" style="height: 30px; width: 100%; background-color: black;" placeholder="Search apple.com">
+                <a href="#">Mac</a>
+                <a href="#">iPad</a>
+                <a href="#">iPhone</a>
+                <a href="#">Watch</a>
+                <a href="#">TV</a>
+                <a href="#">Music</a>
+                <a href="#">Support</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

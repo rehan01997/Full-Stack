@@ -1,0 +1,58 @@
+body{
+    width: 90%;
+    max-width: 1140px;
+    margin: auto;
+}
+li{
+    float: left;
+    color: white;
+    
+}
+li ~ li{
+    padding: 10px 20px 0px 20px;
+}
+a{
+    display: inline-block;
+    height: 38px;
+    color: lightgray;
+    text-decoration: none;
+    padding-top: 13px;
+    padding-bottom: 0px;
+}
+a:hover{
+    color: white;
+}
+#navigation-menu{
+    height: 64px;
+    background-color: navy;
+    position: fixed; 
+    width: 100%;
+    max-width: 1140px;
+}
+.active{
+    border-bottom: 3px solid rgb( 241, 86, 90 );
+}
+h1{
+    font-weight: bold;
+     font-size: 40px;
+}
+h2{
+   font-weight: bold; 
+   font-size: 24px; 
+   padding: 10px;
+}
+.fevicon{
+    background-image: url('../logo/logo_transparent.png');
+    background-size: contain;
+    height: 60px;
+    width: 60px;
+}
+.fevicon:hover{
+    background-image: url('../logo/logo.png');
+    background-size: contain;
+}
+.fevicon a{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+}

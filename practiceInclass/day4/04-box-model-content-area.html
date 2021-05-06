@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Box model</title>
+        <style>
+            body {
+                padding: 30px;
+            }
+
+            div {
+                /* % of parent element content width */
+                width: 80%; /* MUST set this in % as far as possible */
+                height: 100px;
+                max-width: 800px; /* width <= 800px */
+                min-width: 500px; /* width >= 500px */
+
+                /* min-height, max-height */
+
+                padding: 1%; /* % of parent element content width */
+                border: 1px solid black;
+                /* vertical margins for block-level elements will "collapse" (the maximum of the margin-bottom of one above and margin-top of the one below is taken as margin between them) */
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque expedita non numquam? Quo incidunt voluptate voluptas ratione id ut voluptates eveniet! Eius quaerat beatae esse exercitationem ea ducimus recusandae a?
+        </div>
+        <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate delectus fugit, libero quos repudiandae saepe vero rerum veritatis qui possimus necessitatibus maiores voluptas praesentium, laudantium illo pariatur iure. Expedita, quisquam.
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga nobis accusantium blanditiis eligendi necessitatibus cupiditate rerum temporibus doloribus eveniet, reiciendis eaque delectus facere atque provident sequi recusandae. Culpa, nobis odio!
+        </div>
+    </body>
+</html>

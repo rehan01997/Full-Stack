@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p-1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima perspiciatis consectetur quae sequi rem repellat odio, ex tenetur eveniet nam?
+    </p>
+    <form action="">
+        <input type="text" minlength="8">
+        <p class="error-message"></p>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('p-1').addEventListener('click',function(){
+            alert(this.textContent);
+        });
+
+        document.querySelector('input').addEventListener('input', function(){
+            if(this.value.length >= 8)
+            {
+                this.style.backgroundColor = 'lightgreen';
+            }
+            else{
+                this.style.backgroundColor = 'white';
+            }
+        });
+
+        document.querySelector('button').addEventListener('click',function(){
+            const input = document.querySelector('input');
+            if(input.value.length < 8 )
+            {
+                document.querySelector( '.error-message' ).innerHTML = 'Some of the inputs have errors. Please correct them and try submitting again.';
+                event.preventDefault();   
+            }
+            else{
+                document.querySelector( '.error-message' ).innerHTML = '';
+            }
+        }); 
+    </script>
+</body>
+</html>

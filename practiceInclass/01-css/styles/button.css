@@ -1,0 +1,17 @@
+button {
+    padding: 10px;
+    border: 0;
+    background-color: navy;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    /* 0 - 255 (0 - ff) */
+    background-color: rgb( 0, 0, 180 );
+}
+
+button:active {
+    /* 0 - 255 (0 - ff) */
+    background-color: red;
+}

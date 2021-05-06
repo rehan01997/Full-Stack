@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="08-styles.css">
+        <style>
+            #p-3 {
+                color: goldenrod;
+            }
+
+            .x {
+                color: crimson;
+            }
+
+            p {
+                color: navy;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            1. Inline styles are given highest importance
+            2. If all other rules lead to a tie, the order matters ("Last one wins")
+            3. There is no special importance given to in-document and external styles (both are same importance)
+            4. Selector matters - Class selector is more important than element selector -> in case of conflict the property set by class selector wins. ID selector is more important than class selector
+        -->
+        
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sunt unde repellat temporibus perferendis nostrum, dignissimos natus iste blanditiis animi similique voluptates molestiae, quibusdam adipisci provident magnam a ea repudiandae.
+        </p>
+        <p class="x">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sunt unde repellat temporibus perferendis nostrum, dignissimos natus iste blanditiis animi similique voluptates molestiae, quibusdam adipisci provident magnam a ea repudiandae.
+        </p>
+        <p class="x" id="p-3">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sunt unde repellat temporibus perferendis nostrum, dignissimos natus iste blanditiis animi similique voluptates molestiae, quibusdam adipisci provident magnam a ea repudiandae.
+        </p>
+    </body>
+</html>

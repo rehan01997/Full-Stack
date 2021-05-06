@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo-item{
+            padding: 10px;
+            border: 1px solid rgb(156, 135, 135);
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        const divDemo = document.querySelector('#demo');
+        function printAll(x)
+        {
+            x.forEach(element => {
+                const div = document.createElement('div');
+                div.classList.add('demo-item');
+                div.innerHTML = `<h4>${element.title}</h4>    <p>User ID : ${element.userId}  ,  ID : ${element.id}  ,  Is Completed : ${element.completed}</p>`;
+                divDemo.appendChild(div);
+            });
+        }
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("demo").innerHTML =
+                // this.responseText;                
+                var obj = JSON.parse(this.response);
+                printAll(obj);
+            }
+        };
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
+        xhttp.send();
+    </script>
+</body>
+</html>

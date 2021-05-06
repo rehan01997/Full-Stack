@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* mobile first */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .products-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin: 1em;
+            }
+
+            .product {
+                flex: 0 0 100%;
+            }
+
+            /* always make sure to resize images according to parent size */
+            .product img {
+                width: 100%;
+            }
+
+            .product .call-to-action a {
+                text-decoration: none;
+                color: rgb( 62, 133, 188 );
+            }
+
+            .product .call-to-action a::after {
+                content: '>';
+                margin-left: 1em;
+            }
+
+            @media ( min-width : 540px ) {
+                .product {
+                    flex: 0 0 47.5%;
+                }
+            }
+            
+            @media ( min-width : 992px ) {
+                .product {
+                    flex: 0 0 23.5%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <section class="products-list">
+            <div class="product">
+                <img src="images/microsoft-surface.webp" alt="Microsoft surface" />
+                <h3>Surface Laptop Go</h3>
+                <p>
+                    Make the most of every day with the sleek style and performance of our lightest Surface laptop.
+                </p>
+                <p class="call-to-action">
+                    <a href="#">Shop now</a>
+                </p>
+            </div>
+            <div class="product">
+                <img src="images/microsoft-surface.webp" alt="Microsoft surface" />
+                <h3>Surface Laptop Go</h3>
+                <p>
+                    Make the most of every day with the sleek style and performance of our lightest Surface laptop.
+                </p>
+                <p class="call-to-action">
+                    <a href="#">Shop now</a>
+                </p>
+            </div>
+            <div class="product">
+                <img src="images/microsoft-surface.webp" alt="Microsoft surface" />
+                <h3>Surface Laptop Go</h3>
+                <p>
+                    Make the most of every day with the sleek style and performance of our lightest Surface laptop.
+                </p>
+                <p class="call-to-action">
+                    <a href="#">Shop now</a>
+                </p>
+            </div>
+            <div class="product">
+                <img src="images/microsoft-surface.webp" alt="Microsoft surface" />
+                <h3>Surface Laptop Go</h3>
+                <p>
+                    Make the most of every day with the sleek style and performance of our lightest Surface laptop.
+                </p>
+                <p class="call-to-action">
+                    <a href="#">Shop now</a>
+                </p>
+            </div>
+        </section>
+    </body>
+</html>

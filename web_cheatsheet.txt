@@ -1,0 +1,919 @@
+https://www.perfectiongeeks.com/
+https://fontawesome.com                 ---> For icons
+material.iostream                       -- > ui
+https://htmlcheatsheet.com/css/         --> css
+https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,600;1,100;1,400;1,600&display=swap" rel="stylesheet">
+http://getbem.com/introduction/         --> css 
+
+        
+<br> 		-----------------> line break
+#comment	------------------------->	shift + /
+#to copy 		------------------------->	shift +Alt + down
+#div + id 		------------------------->	div#id_name OR #id_name	<div id=id_name>
+id-unique and class can used any number of times
+div-block level & span-inline element
+copyright sign	------------------------>	&copy;
+id -> #
+class -> .
+color(color-hex.com) :  #333(grey) , #f4f4f4 (cream white) ,  rgb(0,0,0) , #000000(black) , #ffffff(white) , #ccc(light grey), #344a72(facebook blue)
+1em = 20px
+clear cache memory      -->        shift + F5
+
+css     1. Inline styles are given highest importance
+META TAGS
+#to add description 		------------->	<meta name="description" content="this is the developer page">
+#to add keywords      		------------->	<meta name="keywords content="Web design , Web development">
+#to hide web page from search engine  ----->	<meta name="robots" content="NOINDEX , NOFOLLOW">
+#to fit everything on web browse on any devices >	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+PARAGRAPH<p> </p>
+#to add bold in btw papragraph  ------------->	<strong>yecsyef <strong>          OR        <b> </b>
+#to make italic in paragraph  ---------------->	<em>   </em>
+#to break line in para             ---------------->	<br>
+#to break line and add a line(--)     ---------->	<hr>	
+
+LINK and IMAGES		#site where we can ge random images  - 	
+#to add link to web page  	------------->	<a href="http://google.com"> CLick for google </a>
+#to add link ro web page and 
+   on clicking opens web p to new tab    ---->	<a href="http://google.com" target="_blank"> CLick for google </a>
+#to add internal link       --------------------->		<a href="/abc.html"> ABC </a>
+#to add local images            ----------------->		<img src = "\images\sample.jpg" alt="My image" >
+#to add remote image          ----------------->		<img src="http://imagesdunia.com/building" alt = "My images">
+
+#icons
+facebook    --  <i class="fab fa-facebook"></i>
+twitter     --  <i class="fab fa-twitter"></i>
+youtube     --  <i class="fab fa-youtube"></i>
+linkedin    --  <i class="fab fa-linkedin"></i>
+LIST  -- unordered and ordered list
+<ul>
+  <li>Item 1 </li>
+  <li>Item 2 </.li>
+</ul>
+ 
+<ol type = "1">			type = "1" or "A" or "a"
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ol>
+
+##TABLE
+<table>
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Second name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>md</td>
+                <td>rehan</td>
+            </tr>
+         </tbody>
+    </table>
+
+##FORM
+<form action="process.php">				#after submiting the form will proceed to process.php
+        <div>	
+            <label for="name" >name</label>
+            <input type="text" name="name" id="name" placeholder="Name" value="rehan">	#value--automatically fill input box to rehan
+        </div><br>								#placeholder -- light sentence in input area
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email address">	#placeholder -- light sentence in input area
+        </div><br>
+        <div>
+            <label for="Message">Message</label><br>
+            <textarea name="Message" id="Message" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="Sex">Sex</label>						#select option - male, female
+            <select name="Sex" id="Sex">
+            <option value="Male" >Male</option>
+            <option value="Female" selected>Female</option>				#selected -- already selected option
+            <option value="others">Others</option>
+            </select>
+        </div><br>
+        <div>
+            <label for="Age">Age</label>						#age in number
+            <input type="number" name="Age" id="Age">
+        </div>
+
+        <div><br>
+            <label for="birthday">Birthday</label>					#bday in calender
+            <input type="date" name="birthday" id="birthday">
+        </div><br>
+
+        <div>								#select only one bullet among all bullets
+            <label for="membership">Membership</label><br>				#radio for only one bullet select
+            <input type="radio" name="membership" id="membership" value="simple">Simple
+            <input type="radio" name="membership" id="membership" value="standard" checked>Standard	#checked -- already marked bullet
+            <input type="radio" name="membership" id="membership" value="hard">Hard
+        </div>
+
+        <div>								#select any number of bullets among all 
+            <label for=""Games">Games u like??</label>
+            <input type="checkbox" name="cricket" id="cricket">cricket			#checkbox to select any many bullets
+            <input type="checkbox" name="football" id="football">football
+            <input type="checkbox" name="badminton" id="badminton">badminton
+        </div>
+        <input type="submit" name="subbmiittt" id="subbmiittt">				#A submit button which on clicking take us to process.php
+        <button type="submit">submidjwdt</button>					#button type submit - inside button-- any name
+        <button type="reset">Reset</button>					#reset form
+        
+    </form>    
+
+##ENTITIES
+for extra space	-->	&nbsp 
+    &copy;
+    &reg;
+    1 &gt; 0
+    3 &lt; 4
+    &pound;
+    &dollar;
+    &cent;
+    &yen;
+
+    &hearts;
+    &spades;
+    &clubs;
+    &diams;
+
+    <code>				--> Code like word style
+        &lt;#include&lt;iostream&gt;	-->#include<iostream>
+        using namespace std;
+    </code>
+
+ <p>Save the file by pressing <kbd>ctrl + S</kbd></p>	--> for keyboard coding style -> kbd
+
+##SEMANTIC TAGS
+<header>			header
+<footer>		section		
+<nav>	-->Navigation			aside
+<main>		article
+<section>		
+<article>			footer
+<aside>
+
+#to add external file		---->	<script src="main.js"></script>
+NOt important		---->	!Notimporttants
+
+### CSS		######################################################
+*<link rel="stylesheet" href="css/style.css">
+
+inline css 	(inside main.html)	----->	<h1 style="color : blue">Wecome</h1>
+internal css (inside main html	----->	<head>
+				<style> 
+				       h2{
+					color : red;
+				       }
+				</style>
+external css  (outside main html) ---->	<link rel="stylesheet" href="css/style.css">
+
+# inline > internal > external	(precedence in css)
+#inline > id > class > div
+
+#Multiple selectors 		--->	#welcome , #about{
+					color : red;
+				}
+#Nested selector		--->	#welcome p
+				{
+					color : blue;
+				}
+# CSS elements
+
+
+#FONT
+font-family   --->	arial, Sans Serif , Verdena , Tahoma, ROBOTO(search on internet) 
+font-size: 17px;
+line-height : 1.6em
+font-weight : bold;
+font-style : italic;
+
+#BORDER AND BACKGROUNDS
+background-color : 
+
+1)border-width : 3px ;
+2)border-color: red;
+3)border-style: dotted , dash , solid;
+1)+2)+3   --> border : 3.px solid red; 	(CAN BE WRITTEN AS)
+
+#border radius 				--> border-radius : 10px;       (curve corner)
+#to curve border from top-left			--->	border-top-left-radius : 10px;
+#to curve border from top-right			--->	border-top-right-radius : 10px;
+
+#background image 				  --->	background-image : url('http:\\ OR '.\img.jg)
+#if we don't want to move image even on scrolling        --->	background-attachment : fixed;
+#if suppose size of image is 10px,10px and 
+  we want image in 100px,100px, then if dont want
+  the image to repeat itself then			---->	background-repeat : no-repeat , repeat-x , repeat-y , repeat
+#to position the image				        ---->	background-position : 100px 100px  OR center center
+#to show whole image in specific frame		---->	background-size : cover
+#to contain full image                      ---->   background-size : contain
+
+#above four things can be combined in one	---->	background : url(http:\\) no-repeat 100px 100px/cover;
+
+##PADDING AND BACKGROUND
+box-sizing: border-box;			        ---->	Include padding and border in the element's total width and height	(not margin)
+#padding-top : 10px;
+#padding-right : 20px;
+#padding-bottom : 10px;
+#padding-left : 20px;
+
+OR padding : 10px 20px 10px 20px;
+OR padding : 10px 20px;	(top/down && top/bottom)
+
+#margin-top : 10px;
+#margin-right : 20px;
+#margin-bottom : 10px;
+#margin-left : 20px;
+
+OR margin : 10px 20px 10px 20px;
+OR margin : 10px 20px;	(top/down && top/bottom)
+
+## TEXT ALIGNMENT AND FLOATING
+#margin : auto 				--->    it manages margin equally on left and right side
+#margin : 10px auto				--->    top-down amrgin- 10px and equal margin on left and right side
+#max-width : 900px				--->    if we decrease the size of window of bowser it will create horizontal scroller, so to avoid it  
+#clear : both 				--->    it clears area
+#float : left;					--->    put div/box to the left
+#float : right;				--->    put div/box to the right
+
+##LINK AND BUUTTON
+ <a class="btn" href="#">My Link</a>
+ <button class="btn" >Button</button>
+
+#text-decoration: none;		            	--->	removes underline from link
+#a:hover{					                --->	when pointer is on link then color turns red , font-size:20px
+            font-size: 30px;
+            color : red;
+        }
+# a:active{				                     --->	when clicked on link, then color turns coral
+            color : coral;
+        }
+#cursor: pointer;				            --->	 cursor type is pointer
+
+## MENU
+overflow : auto/hidden/visible/scroll		--->	The overflow property specifies what should happen if content overflows an element's box.
+
+#INLINE AND BLOCK ELEMENT
+eg : 
+<ul>
+  <li>Name</li>
+</ul>
+# li: last-child{				---> 	eg list have name,contact,address and after each list item we have line..to remove line from last list item	
+  border : none;
+}
+
+.box					--->	to get the boxes in horizontal line
+        {
+            display: inline-block;
+            box-sizing: border-box;
+            width : 31.5%;
+            border : 2px solid #ccc;
+            padding : 10px 5px 10px 20px;
+            margin : 10px;
+        }
+##POSITION
+1)static		--->	Not effected bt top,right,down,left values
+2)Relative		--->	tblr values causes element to moved from its normal postion
+3)Absolute	    --->	Postioned relative to its parent element
+4)Fixed		    --->	Poitioned relative to viewport
+5)Sticky		--->	Positioned based on scroll position
+position : static/relative/absolute/fixed/sticky
+top : 100px;
+bottom : 100px;
+left : 10px;
+right : 10px;
+
+# <div id="container">
+        <div id = box2 class="box"></div>
+        <div id = box3 class="box"></div>
+  </div>
+#container{
+            position: relative ;
+            height: 500px;
+            width: 500px;
+            background : #333;
+}
+#box2{
+        position: absolute;    // fixed;
+        top : 300px;
+        right : 100px;
+        background: green;
+}
+#box3{
+        position : absolute;
+        left : 100px;
+        right : 400px;
+        bottom : 200px;
+        top : 100px;
+        background : red;
+}
+
+##OPACITY
+opacity : 0.8;              range ( 0->transparancy to 1->non transparent)
+
+#Input border color
+.class input:focus{
+    outline : none;
+    border-color : red;
+}
+
+#Responsiveness and media
+<div id="widescreen"><h1>Widescreen</h1></div>
+<div id="normal"><h1>Normal</h1></div>
+<div id="tablet"><h1>Tablet</h1></div>
+
+@media screen and (max-width: 500px) {
+    body{
+        background : red;
+    }
+    #Smartphone h1{
+        display: block;
+        color :royalblue;
+    }
+}
+/* tablet */
+@media (min-width: 501px) and (max-width: 768px)
+{
+    body{
+        background : Green;
+    }
+    #tablet h1{
+        display: block;
+        color : yellow;
+    }
+}
+
+# em and rem
+em depends on previous used property. eg font-size : 20px;
+                                         line height : 1.6em ;  // 1.6 * 20
+rem depends on default values       . eg default value of font-size : 16px;
+                                        line-height : 1.6em;    //1.6 * 26
+
+#Vh and Vw
+height : 20vh , 50vh , 100vh            --->    20 means 20/100th heightof screen
+weight : 20wh , 50wh , 100wh            --->    50w means 50/100th width of screen
+
+#FLEX
+    1.justify-content   
+    2.align-items
+    3.align-content
+.container{
+    display: flex;
+    flex-direction : row ;           // row , col , row-reverse , col-reverse // 
+    flex-wrap : wrap;                // it sets the div acoordingly - acc. to width of window ie it brings div to same row or move to col due to insufficient width
+} 
+
+flex : grow shrink basis
+
+flex : 1 0 200px;                    // can grow acc to window ,will not shrink below 200px , width is 200px
+flex : 0 1 200px;                    // width can't grow after 200px, can shrink below 200px , width : 200px;
+
+.container{
+            display: flex;
+            flex-direction: row;               //content is aligned in row
+            height : 50vh;
+            background: #ccc;;
+            align-items : center;              //align content in middle 
+            align-items : stretch;             //content is aligned in row and content ele stretches itself in col
+            justify-content :space-around;     //space will be equal //space-between - space will be equal between contents
+}
+.box{
+        text-align: center;
+        padding : 10px 50px;
+        border : 1px #444 solid;
+        background : #f4f4f4;
+        margin: 20px; 
+}
+.box1{
+        align-self: flex-end;                 // it takes box1 to end in vertical direction
+}
+.box3{
+        align-self: flex-start;               // " "              top " " 
+        flex :2 ;                             //box 3 will grow 3 times wrt box1 and box2
+}
+flex : 25%; //  1,1,25%;
+
+#Transition
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;    // after 2 sec width of div chnges from 100px to 300px
+}
+
+div:hover {
+  width: 300px;
+}
+
+## ::before  ## ::after
+Insert some text before the content of each <p> element:
+p::before {
+  content: "Read this: ";
+}
+
+#object-fit : cover ;       // it covers the image within area
+
+##FEVICON
+website             --->        dynamic drive fevicon -> search google
+
+##BOOTSTRAP
+b4- ctrl + space
+
+***************************************
+html
+<button>Submit</button>
+
+css
+button {
+    padding: 10px;
+    border: 0;
+    background-color: navy;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    /* 0 - 255 (0 - ff) */
+    background-color: rgb( 0, 0, 180 );
+}
+
+button:active {
+    /* 0 - 255 (0 - ff) */
+    background-color: red;
+}
+*****************************************
+
+***   nth child ***
+ /* body, div inside section, first paragraph under div, div after section, the para inside the ( div after section ),  */
+            /* selects all elements which are the second child of their respective parent */
+:nth-child(2) {
+                padding: 10px;
+                border: 1px solid black;
+            }   
+
+/* selects all elements which are the second of their type in their respective parent */
+:nth-of-type(2) {
+    padding: 20px;
+    border: 1px solid black;
+}
+
+//Specify a background color for every <p> element that is the second p element of its parent:
+p:nth-of-type(2) {
+  background: red;
+}
+
+
+*****  div :: before && div :: after
+
+//Insert some text before the content of each <p> element:
+
+p::before {
+  content: "Read this -";
+}
+</style>
+</head>
+<body>
+
+<p>My name is Donald</p>
+<p>I live in Ducksburg</p>
+
+o/p : Read this My name is Donald
+      Read this I live in Ducksburg
+
+
+****  strong tag ****
+Define important text in a document:
+
+<strong>This text is important!</strong>
+
+**** parent > div
+
+/* child selector (parent > child combinator) */
+div > p {
+    text-decoration: underline;
+}
+
+
+*** Css Combinators : apply css on a particular tag element
+
+There are four different combinators in CSS:
+
+    descendant selector (space)    ==>  selects all <p> elements inside <div> elements
+    child selector (>)             ==>  The child selector selects all elements that are the children of a specified element.
+    adjacent sibling selector (+)  ==>  /* The + selector is used to select an element that is directly after another specific element. *
+    general sibling selector (~)   ==> /* Selects every p element that are preceded by a div class="X" element */
+
+    <style>
+            main p{
+                font-weight: bold;
+            }
+            main > p{
+                border: 2px solid black;
+            }
+            main > section.s1 > img
+            {
+                display: block;
+                height: 400px;
+                width: 90%;
+                margin: auto;
+            }
+            section > a{
+                font-weight: bold;
+                text-decoration: none;
+            }
+            div.a{
+                color: crimson;
+                background-color: chartreuse;
+            }
+            div.a.b{
+                background-color: darkgrey;
+            }
+            div + p{
+                color: blue;
+            }
+            div.x ~ p{
+                color : goldenrod;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section class="s1">
+                <h2>Consultation 1</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque accusamus qui sunt possimus, non culpa iusto reprehenderit impedit ab debitis maiores fugit repudiandae perspiciatis neque autem? Quaerat nam harum obcaecati veniam iure porro cupiditate, at corporis. Voluptatem neque voluptate laboriosam.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png" alt="">
+            </section>
+            <section class="s2">
+                <h2>Consultation 2</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem sit tempora eveniet quod assumenda vitae tenetur, minima qui dolores voluptatibus voluptate possimus, incidunt modi voluptatum alias, eaque unde dignissimos itaque impedit cupiditate! Doloremque amet quis quod vitae ullam incidunt inventore!</p>
+                <a href="https://www.google.com">GOOGLE</a>
+            </section>
+
+            <h2>Consultation 3</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi et facere beatae libero fugiat quo necessitatibus neque laborum voluptatibus, illo rerum error maiores aspernatur iste iusto, amet ex tempore suscipit aperiam veritatis, cupiditate aliquam quisquam sapiente. Eos natus reprehenderit adipisci.</p>
+        
+            <div class="a">
+                <h2>Consultation 4</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias exercitationem odit iure minus dolor voluptate modi aut ipsa, impedit quidem. Unde commodi dolore error nam cum! Illo expedita quibusdam quas saepe esse magnam laborum nam mollitia iusto cum, nesciunt harum?</p>
+            </div>
+            <div class="a b">
+                <h2>Consultation 5</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur alias adipisci dolores facilis illo ex illum nam odit unde placeat consequuntur, iusto vero eaque sunt excepturi deleniti eius. Inventore distinctio cupiditate necessitatibus consequatur adipisci reprehenderit aut dolorem nihil sunt cumque.</p>
+            </div>
+        </main>
+
+****  Inheritance ***
+ <style>
+            div {
+                color: crimson;
+                padding: 20px;
+                border: 1px solid black;
+
+                /* what is the "initial" value? It is "transparent". */
+                background-color: yellow;
+            }
+
+            p {
+                /* by default color property is inherited from parent */
+                /* by default padding, border properties are NOT inherited from parent */
+
+                color: initial; /* I do not want to inherit color from my parent */
+                
+                /*padding: 20px;
+                border: 1px solid black;*/
+                
+                /* I wan to explicitly inherit the padding and border of my parent */
+                padding: inherit;
+                border: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos qui quas maiores perferendis beatae ipsum molestias officiis tenetur id tempore. Aspernatur sint sapiente ea modi minus adipisci earum explicabo iusto.
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fugit illo ipsum atque non tempore, dolorem corrupti architecto molestiae minus incidunt maxime neque blanditiis aspernatur rerum ducimus quis ad obcaecati?
+            </p>
+        </div>
+    </body>
+ 
+****    font size = 1.2 em = 1.2 * ( with respect to inherited value )
+
+    96px = 1 inch
+
+**** Vertical align ***
+
+css 
+<style>
+    img.a {
+    vertical-align: baseline;
+    }
+
+    img.b {
+    vertical-align: text-top;
+    }
+
+    img.c {
+    vertical-align: text-bottom;
+    }
+
+    img.d {
+    vertical-align: sub;
+    }
+
+    img.e {
+    vertical-align: super;
+    }
+
+o/p : 
+    vertical-align: baseline (default):
+    An * image with a default alignment.
+
+    vertical-align: text-top:
+    An * image with a text-top alignment.
+
+    vertical-align: text-bottom:
+    An * image with a text-bottom alignment.
+
+    vertical-align: sub:
+    An * image with a sub alignment.
+
+    vertical-align: sup:
+    An * image with a super alignment.
+
+**** Box-sizing 
+    // padding and margin is not included in height and width
+        box-sizing : content-box
+            #example1 {
+                    box-sizing: content-box;  
+                    width: 300px;
+                    height: 100px;
+                    padding: 30px;  
+                    border: 10px solid blue;
+                }
+
+    // padding and margin is included in height and width
+        #example2 {
+            box-sizing: border-box;
+            width: 300px;
+            height: 100px;
+            padding: 30px;  
+            border: 10px solid blue;
+        }            
+
+*** outline ***
+An outline is a line drawn outside the element's border.
+outline: green solid 10px;
+
+*** overflow  ****
+    The overflow property controls what happens to content that is too big to fit into an area.
+
+    The overflow property has the following values:
+
+    visible - Default. The overflow is not clipped. The content renders outside the element's box
+    hidden - The overflow is clipped, and the rest of the content will be invisible
+    scroll - The overflow is clipped, and a scrollbar is added to see the rest of the content
+    auto - Similar to scroll, but it adds scrollbars only when necessary
+
+
+*** box-shadow ***
+    box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
+    box-shadow: 10px -10px 0px 20px rgb(163, 134, 134);
+
+
+*** Backgroud image
+    background-image: url( "images/feast-400x400.jpg" ); 
+    background-size: 100% 100%;     /* set both width and height -> aspect ratio is lost */
+    background-size: cover;         /* ensures entire element's space is filled without the image being repeated *
+    background-size: contain;       /* ensures that the entire image is visible (the image is made larger / smaller till it hits one pair of opposite edges, and then it is repeated) */
+    background-color: crimson;
+    background-repeat: repeat-y;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0.5; /* we can see through the background image to what is behind */
+    background-attachment : scroll  // The background image will scroll with the page. This is default  
+    background-attachment : fixed   // The background image will not scroll with the page
+    background-attachment : local   // The background image will scroll with the element's contents
+    background-origin: padding-box|border-box|content-box|initial|inherit;  // image starts from padding,border,content ( from upper left)
+
+*** text ***
+    text-decoration: underline;
+    text-decoration: line-through;  
+    line-height: 1.5;
+    letter-spacing : 2px;
+
+*** text-shadow ***
+    text-shadow: 1px -1px 3px rgba(245, 11, 58, 0.5);
+
+*** text-transform ***
+    text-transform: uppercase;
+    text-transform: lowercase;
+    text-transform: capitalize;
+
+    text-transform: uppercase:
+    LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.
+
+    text-transform: lowercase:
+    lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    text-transform: capitalize:
+    Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit.
+
+*** Hiding and showing
+div{
+        visibility: hidden; // space occupied but not visible
+        display: none; /* does not get the space on the page (treated as though it never existed on the page) */
+        opacity: 0.3;  // blur's object
+}
+
+*** float and clear ***
+    float : moves the ele to left/right.
+    clear : cleares the space to the left/right
+        <div>
+            <p clear="left"> safdwf wifw </p>
+            <img src="cat.jpeg" style="float:left">
+        </div>
+
+*** float and clearfix ***
+
+    clearfix : If an element is taller than the element containing it, and it is floated, it will overflow outside of its container.
+               Then we can add overflow: auto; to the containing element to fix this problem:
+        div {
+        border: 3px solid #4CAF50;
+        padding: 5px;
+        }
+
+        .img1 {
+        float: right;
+        }
+
+        .clearfix{
+        overflow : auto;
+        }
+
+        .img2 {
+        float: right;
+        }
+        </style>
+        </head>
+        <body>
+
+        <h2>Clearfix</h2>
+
+        <p>In this example, the image is taller than the element containing it, and it is floated, so it overflows outside of its container:</p>
+
+        <div>
+        <img class="img1" src="pineapple.jpg" alt="Pineapple" width="170" height="170">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum...
+        </div>
+
+        <p style="clear:right">Add a clearfix class with overflow: auto; to the containing element, to fix this problem:</p>
+
+        <div class="clearfix">
+        <img class="img2" src="pineapple.jpg" alt="Pineapple" width="170" height="170">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum...
+        </div>
+
+*** CSS sprites ***
+    An image sprite is a collection of images put into a single image.
+    A web page with many images can take a long time to load and generates multiple server requests.
+    Using image sprites will reduce the number of server requests and save bandwidth.
+
+        #facebook{
+            background-image: url('https://image.shutterstock.com/image-photo/kiev-ukraine-april-23-2018-600w-1076967005.jpg') ;
+            background-position: 0 0;
+        }
+        #instagram{
+            background-image: url('https://image.shutterstock.com/image-photo/kiev-ukraine-april-23-2018-600w-1076967005.jpg') ;
+            background-position: -200px 0;
+        }
+        #twitter{
+            background-image: url('https://image.shutterstock.com/image-photo/kiev-ukraine-april-23-2018-600w-1076967005.jpg') ;
+            background-position: -400px 0;
+        }   
+
+*** Flex ***        // default row --- now columns
+        .parent {
+            display: flex;
+        }
+        .parent {
+            display: flex;
+            flex-direction:column; /* row (default), row-reverse, column-reverse */
+        }
+        <div class="parent">
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae in ipsam minus ab temporibus, sapiente repellendus voluptatibus ratione ipsum eveniet fugit aperiam assumenda tenetur doloremque dolorem possimus. Et, cum explicabo!
+            </div>
+            <div class="child">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi vero maiores necessitatibus repellendus! Eaque tenetur veniam incidunt illum praesentium quasi soluta, repudiandae dolores explicabo ducimus! Adipisci, nam aspernatur! Ducimus, quam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum veritatis architecto autem. Harum odio non praesentium nostrum labore, veritatis ut perferendis, dolorum accusantium voluptatibus, dolorem aliquam quo laudantium fugit doloremque?
+        </div>
+        BOX BOX 
+
+*** FLex : grow shrink basis
+
+     .parent {
+            display: flex;
+            padding: 1em;
+            border: 1px solid crimson;
+        }
+        .parent {
+                display: flex;
+                overflow : scroll;      //extra child is in scrolled state
+                padding: 1em;
+                border: 1px solid crimson;
+            }
+        .parent {
+                display: flex;
+                flex-wrap: wrap; // all child are visible
+                padding: 1em;
+                border: 1px solid crimson;
+            }
+
+        .child {
+            border: 1px solid black;
+            padding: 1em;
+            
+            flex: 1 1 25%; /* flex-grow flex-shrink flex-basis */
+        }
+    
+    <div class=parent>
+        div class=child
+        div class=child
+
+*** Flex  justify-content ***
+    .parent {
+    width: 400px;
+    height: 100px;
+    border: 1px solid #c3c3c3;
+
+    display: flex;
+    justify-content: flex-start;
+    }
+
+    .child {
+    width: 70px;
+    height: 70px;
+    }
+    flex-start : 	Default value. Items are positioned at the beginning of the container	
+    flex-end :	Items are positioned at the end of the container	
+    center : 	Items are positioned in the center of the container	
+    space-between	: Items will have space between them	
+    space-around : 
+
+*** Flex ordering
+
+        .parent {
+            display: flex;
+        }
+
+        .child {
+            border: 1px solid black;
+            padding: 1em;
+        }
+
+        .child-1 { order: 4 }
+        .child-2 { order: 3 }
+        .child-3 { order: 2 }
+        .child-4 { order: 1 }   
+
+        // child4 child3 child2 child1
+
+*** Flex align-items ***
+        .parent {
+            display: flex;
+            flex-wrap: wrap; /* nowrap (default) */
+            padding: 1em;
+            border: 1px solid crimson;
+        }
+
+        .parent-1 {
+            /* default - children in each line will strecth to fill the height of the line */
+            align-items: stretch;
+        }
+        
+        .parent-2 {
+            /* flex-start - children in each line will be put at the top of the line */
+            align-items: flex-start;
+        }
+        
+        .parent-3 {
+            /* flex-end - children in each line will be put at the bottom of the line */
+            align-items: flex-end;
+        }
+        
+        .parent-4 {
+            /* center - children in each line will be put at the bottom of the line */
+            align-items: center;
+        }
+
+        .child {
+            border: 1px solid black;
+            padding: 1em;
+            
+            flex: 1 0 25%; /* flex-grow flex-shrink (0 -> not allowed) flex-basis */
+        }
+
+**** Show text in  Get To...  way ON hovering shows full text ****

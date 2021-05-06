@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Sprites</title>
+    <style>
+        p{
+            font-size:40px;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .sprites{
+            background-image: url('https://image.shutterstock.com/image-photo/kiev-ukraine-april-23-2018-600w-1076967005.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 200px;
+
+        }
+        #navlist{
+            list-style: none;
+        }
+        li{
+            display: inline-block;
+            border: 4px solid black;
+        }
+        a{
+            display: block;
+            height: 230px;
+            width: 200px;
+        }
+        #facebook{
+            background-image: url('https://image.shutterstock.com/image-photo/kiev-ukraine-april-23-2018-600w-1076967005.jpg') ;
+            background-position: 0 0;
+        }
+        #instagram{
+            background-image: url('https://image.shutterstock.com/image-photo/kiev-ukraine-april-23-2018-600w-1076967005.jpg') ;
+            background-position: -200px 0;
+        }
+        #twitter{
+            background-image: url('https://image.shutterstock.com/image-photo/kiev-ukraine-april-23-2018-600w-1076967005.jpg') ;
+            background-position: -400px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sprites"></div>
+    <p>Navigation Bar</p>
+
+    <ul id="navlist">
+        <li id="facebook"><a href="https://www.facebook.com"></a></li>
+        <li id="instagram"><a href="https://www.instagram.com"></a></li>
+        <li id="twitter"><a href="https://www.twitter.com"></a></li>
+    </ul>
+</body>
+</html>

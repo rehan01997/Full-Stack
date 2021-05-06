@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /*
+                "Specificity" of a selector (a, b, c, d)
+                In a complex selector
+                a - 0
+                b - Count the number of times #id selector appears
+                c - Count the number of times .class selector appears
+                d - Count the number of times tag selector appears
+
+                Inline styles are considered to have specificity (1, 0, 0, 0)
+            */
+            
+            /* 0, 0, 2, 3 -> winner */
+            /* 0, 0, 1, 4 */
+
+            /* a = 0; b = 0; c = 1; d = 3 */
+            div section.y p {
+                color: rgb(21, 255, 224);
+            }
+
+            /* a = 0; b = 0; c = 1; d = 2 */
+            div > .y > p {
+                color: purple;
+            }
+            
+            /* a = 0; b = 0; c = 0; d = 3 */
+            div > section > p {
+                color: navy;
+            }
+            
+            /* a = 0; b = 0; c = 0; d = 2 */
+            section > p {
+                color: olive;
+            }
+
+            /* a = 0; b = 0; c = 0; d = 1 */
+            p {
+                color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="z">
+            <section class="y">
+                <p class="x" id="p-1">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit illum laudantium dicta quis amet eum consequuntur a nostrum nemo itaque maxime delectus tempora ad possimus, ipsam ipsa suscipit magnam error?
+                </p>
+            </section>
+        </div>
+
+        <section class="y">
+            <p class="x" id="p-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit illum laudantium dicta quis amet eum consequuntur a nostrum nemo itaque maxime delectus tempora ad possimus, ipsam ipsa suscipit magnam error?
+            </p>
+        </section>
+
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit illum laudantium dicta quis amet eum consequuntur a nostrum nemo itaque maxime delectus tempora ad possimus, ipsam ipsa suscipit magnam error?
+        </p>
+    </body>
+</html>

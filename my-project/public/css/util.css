@@ -1,0 +1,90 @@
+p{
+    margin: 12px 0;
+}
+h5{
+    margin: 10px 0;
+}
+.container{
+    padding: 0 20px;
+}
+.mar{
+    margin: 8px 0;
+}
+.search-btn{
+    height: 50px;
+    width: 98%; 
+    border: none; 
+    border-radius: 3px;
+}
+.date-btn{
+    width: 98%;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+}
+
+/* Teams */
+.column-t{
+    height: 230px;
+    width: 250px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    margin: 10px;
+}
+.row-t{
+    display: flex;
+}
+.add-member{
+    text-align: center;
+    padding-top: 100px;
+    font-size: larger;  
+    font-weight: 900;
+    height: 140px;
+}
+@media screen and (max-width : 361px) {
+    .row-t{
+        flex-direction: column;
+    }
+}
+
+/* Meeting */
+.search-meeting{
+    background-color: rgb(46, 186, 177);
+    padding: 13px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+.column-m{
+    border: 1px solid lightgray;
+    margin: 10px;
+    padding: 13px;
+}
+
+/* Calender */
+
+.row-c{
+    display: flex;
+    justify-content: space-between;
+}
+.column-date{
+    margin-top: 21px;
+}
+.tab{
+    background-color: rgba(73, 176, 194, 0.897);
+    height: 30px;
+    width: 98%;
+    margin: 2px 0;
+}
+.grey-box{
+    height: 21px;
+    background-color: lightgrey;
+    width: 98%;
+    margin: auto;
+    padding: 4px;
+    border-radius: 3px;
+}
+.tab-font{
+    padding : 0 0 0 3px;
+    margin: 0;
+    font-size: 11px;
+}

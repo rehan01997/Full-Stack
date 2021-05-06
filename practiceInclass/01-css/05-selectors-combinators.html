@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* Combinators */
+            p {
+                color: crimson;
+            }
+
+            /* descendant selector (ancestor descendant combinator) */
+            div p {
+                font-size: 24px;
+            }
+
+            /* child selector (parent > child combinator) */
+            div > p {
+                text-decoration: underline;
+            }
+
+            /* no spaces - adding additional requirements for selection */
+            /* p.x -> is a para, has class x */
+            p.x {
+                color: olive;
+            }
+
+            p.x.y {
+                color: navy;
+            }
+        </style>
+    </head>
+    <body>
+        <p title="Paragraph 1">
+            <strong>Para</strong>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, fugit laboriosam, eaque omnis tempora maiores accusamus quas nihil, necessitatibus accusantium doloribus enim modi explicabo cupiditate debitis. Provident quam modi earum!
+        </p>
+        <div style="margin: 60px 0; border: 1px solid black; padding: 10px;">
+            <h2>Div</h2>
+            <p id="p-2">
+                <strong>Para</strong>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, quas quod. Amet, sint enim? Voluptatem, cumque incidunt magni praesentium nemo maxime asperiores consectetur, ducimus beatae, veritatis nam alias eum sint?
+            </p>
+            <section class="x" title="Section 1" style="border: 1px solid black; padding: 10px;">
+                <h2>Section</h2>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non molestiae possimus hic perferendis alias autem adipisci corporis exercitationem aliquam. Dicta laboriosam commodi est amet illo molestiae, excepturi nulla hic reiciendis.
+                <p id="p-3" class="x y" style="border: 1px solid black;">
+                    <strong>Para (within section)</strong>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nemo, maiores suscipit ex quidem explicabo pariatur? Veniam, necessitatibus animi! Beatae aspernatur nulla, incidunt impedit quo repudiandae soluta corporis odio voluptates.
+                </p>
+                <p id="p-4" class="x" style="border: 1px solid black;">
+                    <strong>Para (within section)</strong>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nemo, maiores suscipit ex quidem explicabo pariatur? Veniam, necessitatibus animi! Beatae aspernatur nulla, incidunt impedit quo repudiandae soluta corporis odio voluptates.
+                </p>
+            </section>
+        </div>
+        <p class="x" id="p-5">
+            <h2>Para</h2>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo id possimus quo, amet eum minima, veniam dolor quibusdam necessitatibus, fugiat eveniet? Sit, dignissimos? Atque corporis dolorem obcaecati enim eaque laboriosam.
+        </p>
+        <a href="https://www.google.com" target="_blank">Link 1 (Google)</a>
+        <a href="https://www.facebook.com" target="_blank">Link 2 (Facebook)</a>
+        <a href="https://www.google.com" class="x">Link 3 (Google)</a>
+        <a href="https://www.twitter.com" class="x">Link 4 (Twitter)</a>
+    </body>
+</html>

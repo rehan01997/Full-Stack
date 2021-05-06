@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+        }
+        .img-updates{
+            height: 200px;
+            width: 400px;
+        }
+        .img-news{
+            height: 100px;
+            width: 100px;
+            padding: 14px;
+        }
+        .row
+        {
+            display: flex;
+        }
+        h4{
+            margin: 0px ;
+        }
+        .row p{
+            font-weight: bold;
+        }
+        @media screen and  ( max-width : 640px ){
+            .container{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Latest updates</h2>
+    <div class="container">
+        <div class="column">
+            <img src="images/new1.png" alt="" class="img-updates">
+            <h3>Discover the power of Australia's best 5G</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, ex? Recusandae enim, corrupti tempore amet laborum maxime ducimus labore maiores, sit aliquam perferendis alias sint perspiciatis dolorem incidunt atque non?</p>
+        </div>
+        <div class="column">
+            <img src="images/new6.png" alt="" class="img-updates">
+            <h3>Discover the power of Australia's best 5G</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, ex? Recusandae enim, corrupti tempore amet laborum maxime ducimus labore maiores, sit aliquam perferendis alias sint perspiciatis dolorem incidunt atque non?</p>
+        </div>
+        <div class="column">
+            <div class="row">
+                <div class="column1">
+                    <img src="images/new2.png" alt="" class="img-news">
+                </div>
+                <div class="column2">
+                    <h4>News</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquid enim unde magnam earum numquam eius similique nulla tempora provident doloremque repellat eligendi ipsam fugiat vero nihil, minima exercitationem ut!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column1">
+                    <img src="images/new3.png" alt="" class="img-news">
+                </div>
+                <div class="column2">
+                    <h4>News</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquid enim unde magnam earum numquam eius similique nulla tempora provident doloremque repellat eligendi ipsam fugiat vero nihil, minima exercitationem ut!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column1">
+                    <img src="images/new4.png" alt="" class="img-news">
+                </div>
+                <div class="column2">
+                    <h4>News</h4>
+                    <p>Lorem ipsum dolor sit amet  earum numquam eius similique nulla tempora provident doloremque repellat eligendi ipsam fugiat vero nihil, minima exercitationem ut!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
