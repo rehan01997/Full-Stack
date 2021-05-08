@@ -40,47 +40,23 @@
         <h3>Calender</h3><hr>
         <div class="row-c">
             <div class="column-c">
-                <h4>12 September 2020</h4>
-                <h5 style="color: rgb(170, 148, 148); margin-top: 0;">Saturday</h5>
+                <h4 id="set-date">12 September 2020</h4>
+                <h5 style="color: rgb(170, 148, 148); margin-top: 0;" id="set-day">Saturday</h5>
             </div>
             <div class="column column-date">
-                <input type="date">
+                <input type="date" name="current-date" id="current-date" value="">
             </div>
         </div>
-        <div class="tab">0</div>
-        <div class="tab">1</div>
-        <div class="tab">2</div>
-        <div class="tab">3</div>
-        <div class="tab">4</div>
-        <div class="tab">
-            <p class="grey-box tab-font" style="font-weight: bold;" >Project Kickoff</p>
-            <p class="grey-box tab-font">Attendees : john@example.com</p>
+        <div id="calender-container">
+            <!-- <div class="tab cal-1">0</div>
+            <div class="tab cal-2">
+                <p class="grey-box tab-font" style="font-weight: bold;" >Project Kickoff</p>
+                <p class="grey-box tab-font">Attendees : john@example.com</p>
+            </div> -->
         </div>
-        <div class="tab">6</div>
-        <div class="tab">7</div>
-        <div class="tab">8</div>
-        <div class="tab">9</div>
-        <div class="tab">10</div>
-        <div class="tab">11</div>
-        <div class="tab">12</div>
-        <div class="tab">13</div>
-        <div class="tab">14</div>
-        <div class="tab">15</div>
-        <div class="tab">16</div>
-        <div class="tab">17</div>
-        <div class="tab">18</div>
-        <div class="tab">19</div>
-        <div class="tab">20</div>
-        <div class="tab">21</div>
-        <div class="tab">22</div>
-        <div class="tab">23</div>
-        <div class="tab">24</div>
-        <div class="tab">25</div>
-        <div class="tab">26</div>
-        <div class="tab">27</div>
-        <div class="tab">28</div>
-        <div class="tab">29</div>
-        <div class="tab">30</div>
     </div>
+    
+    <script src="./js/calender.js" type="module"></script>
+    <script src="./external/axios/dist/axios.min.js"></script>
 </body>
 </html>

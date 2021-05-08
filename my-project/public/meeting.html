@@ -41,53 +41,13 @@
             <a href="meeting.html" class="btn-normal btn-active">Filter/Search Meeting</a>
             <a href="meeting2.html" class="btn-normal ">Add meeting</a>
         </div>
-        <div class="search-meeting">
-            <h3 style="color: white;">Search for meetings</h3><hr>
-            <form action="">
-                <div class="mar"><label for="Date">Date</label></div>
-                <select id="date" name="date" class="font-size date-btn">
-                    <option value="all">All</option>
-                    <option value="past">Past</option>
-                    <option value="today">Today</option>                    
-                    <option value="upcoming">Upcoming</option>                    
-                </select>
-                <div class="mar"><label for="search">Search for</label></div>
-                <div class="mar"><input type="text" class="search-btn" placeholder="Search using keywords that describe the meeting"></div>
-                <button type="submit" class="btn-blue">Search</button>
-            </form>
-        </div>
 
-        <div class="row">
-            <h3>Meetings matching search criteria</h3><hr>
-            <div class="column-m">
-                <h4>12 September 2020 <span>06:00 - 07:00</span></h4>
-                <p>Project kickoff</p>
-                <button class="btn-red">Excuse Yourself</button><hr>
-                <h5>Members : <span>john@example.com</span></h5> 
-                <form action="">
-                    <select id="member" name="member" class="font-size">
-                      <option value="member0">Select member</option>
-                      <option value="member1">Member1</option>
-                      <option value="member2">Member2</option>                    
-                    </select>
-                    <input type="submit" class="font-size btn-blue" value="Add">
-                </form>
-            </div>
-            <div class="column-m">
-                <h4>12 September 2020 <span>06:00 - 07:00</span></h4>
-                <p>Project kickoff</p>
-                <button class="btn-red">Excuse Yourself</button><hr>
-                <h5>Members : <span>john@example.com</span></h5> 
-                <form action="">
-                    <select id="member" name="member" class="font-size">
-                      <option value="member0">Select member</option>
-                      <option value="member1">Member1</option>
-                      <option value="member2">Member2</option>                    
-                    </select>
-                    <input type="submit" class="font-size btn-blue" value="Add">
-                </form>
-            </div>
-        </div>
+        <div id="search-meeting" class="search-meeting"></div>
+
+        <div class="row"></div>
     </div>
+
+    <script src="./external/axios/dist/axios.min.js"></script>
+    <script src="./js/meeting.js" type="module"></script>
 </body>
 </html>

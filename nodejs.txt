@@ -388,3 +388,95 @@ class Person {
         // Person.sayHello();
     }
 }
+
+*** Callback ***
+    A callback is a function passed as an argument to another function
+    This technique allows a function to call another function
+    A callback function can run after another function has finished.
+
+    function sum( x, y, callback ) {
+        setTimeout(function() {
+        callback( x + y );
+        }, 2000);
+    }
+
+    // EXERCISE: Use sum function to calculate sum of 12, 13. Once the result is obtained, use sum again to calculate sum of the result and 14. Then calculate the sum of the previous result and 15, and finally print the final sum.
+    // callback hell (christmas tree)
+    sum( 12, 13, function( result1 ) {
+        console.log( 'result1 = ', result1 );
+
+        sum( result1, 14, function( result2 ) {
+            console.log( 'result2 = ', result2 );
+
+            sum( result2, 15, function( result3 ) {
+                console.log( 'result3 = ', result3 );
+            });
+        });
+    });
+
+*** Promise ***
+    function sum( x, y ) {
+        // the Promise class constructor, calls the function passed to it immediately
+        // initially the Promise object is in "unfulfilled" state
+        // when resolve( value ) is called, the promise moves into a "resolved" state (the promise has resolved with the value passed)
+        // when reject( reason ) is called, the promise moves into a "rejected" state
+        return new Promise(( resolve, reject ) => {
+            if( typeof x !== 'number' || typeof y !== 'number' ) {
+                reject( new Error( 'at least one argument was not a number' ) );
+                return;
+            }
+
+            setTimeout(() => {
+                const result = x + y;
+                resolve( result );
+            }, 2000);
+        });
+    }
+
+    const promise = sum( 12, 'hello' );
+
+    // The Promise object has 2 important methods - then(), and catch()
+    // the function we pass to then() is executed when promise is resolved
+    promise.then(( result ) => {
+        console.log( 'result = ', result );
+    });
+
+    // the function we pass to then() is executed when promise is rejected
+    promise.catch(( error ) => {
+        console.log( 'error = ', error.message );
+    });
+
+*** promise.all ***
+    // axios is async promise
+
+    const { default: axios } = require("axios");
+
+    function getWorkhopDetailsAndSession(id) {
+        
+        let p1 = axios.get(`http://workshops-server.herokuapp.com/workshops/${id}`)
+                .then(response =>{
+                    return response.data;
+                }).catch( x => {
+                    console.log("error");
+                });
+        let p2 = axios.get(`http://workshops-server.herokuapp.com/workshops/${id}/sessions`)
+                .then(response =>{
+                    return response.data;
+                }).catch( x => {
+                    console.log("Erro");
+                });
+
+        Promise.all([p1,p2]).then( values => {
+            console.log(values);
+        });
+    }
+
+    getWorkhopDetailsAndSession(1);
+
+*** Local Storage ==>   web browser  ***
+    localStorage.setItem('name' , 'rehan');
+    localStorage.getItem('name' , 'rehan');
+    localStorage.removeItem('name' , 'rehan');
+
+***  
+
