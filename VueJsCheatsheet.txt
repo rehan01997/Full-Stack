@@ -1,0 +1,323 @@
+*** mount *** 
+
+    <div id="app">
+        Message = {{message}}
+        <template v-if="newMessage !== ''">
+            New message = {{newMessage}}
+        </template>
+        <button @click="changeMessage">Change message</button>
+    </div>
+
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+        const rootInstanceData = {
+            message: 'Hello, Vue',
+            newMessage: ''
+        };
+
+        // root instance -> tie up the Vue instance to the UI
+        // i) Provide el
+        // ii) "mount" it on an HTML element
+        const vm = new Vue({
+            // Vue creates a accessor method for every property in data object
+            data: rootInstanceData,
+            methods: {
+                changeMessage() {
+                    // "data-binding" helps change UI when data changes
+                    // data-binding is seamless in Vue.js
+                    // Vue "reacts" to changes in data seamlessly
+                    this.message = 'Hello, Vue JS';
+                    this.newMessage = 'New message';
+                }
+            }
+        });
+        
+        vm.$mount( '#app' );
+        console.log( vm );
+
+        setTimeout(() => {
+            vm.message = 'Hello, Vue root instance';
+        }, 5000);      
+
+        setTimeout(() => {
+            console.log( rootInstanceData );
+        }, 6000);
+    </script>
+
+*** template *** 
+
+    <div id="app"></div>
+    <script type="module">
+    import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+    new Vue({
+        data: {
+            message: 'Hello Vue template'
+        },
+        el: '#app',
+        template: `
+            <div id="app">
+                <div>{{message}}</div>
+            </div>
+        `
+    });
+    </script>
+
+*** v-html ***
+
+    <div id="app"></div>
+    <script type="module">
+    import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+    new Vue({
+        data: {
+            description: "<p><strong>AngularJS</strong> (also written as <strong>Angular.js</strong>) is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.</p><p>It aims to simplify both the development and the testing of such applications by providing a framework for client-side model–view–controller (MVC) and model–view–viewmodel (MVVM) architectures, along with components commonly used in rich Internet applications. (This flexibility has led to the acronym MVW, which stands for \"model-view-whatever\" and may also encompass model–view–presenter and model–view–adapter.)</p>"
+        },
+        el: '#app',
+        template: `
+            <div id="app">
+                <!--
+                    v-html is a "directive" 
+                    Directives add functionality to the "host element"
+                -->
+                <div v-html="description"></div>
+            </div>
+        `
+    });
+    </script>
+
+*** v-bind / : ***
+<div id="app"></div>
+
+<script type="module">
+    import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+    new Vue({
+        el: '#app',
+        data: {
+            imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/2000px-AngularJS_logo.svg.png",
+            name: 'Angular',
+            date: 'May 15',
+            source: 'src'
+        },
+        template: `
+            <img
+                :[source]="imageUrl"
+                :alt="name + '(' + date + ')'"
+                width="100" />
+        `
+    });
+</script>
+
+*** v-if ***
+v-if hides and shows by adding / removing from DOM
+v-if does not construct the DOM at the start if showPanelBody is false
+Use v-if if you want to save on initial rendering time when there is a huge element that is conditionally rendered
+v-if results is slower switches from hidden to shown and vice versa
+-->
+    <div id="app">
+    <div class="panel">
+        <div class="panel-heading" @click="togglePanel">What is Vue?</div>
+        <div class="panel-body" v-if="showPanelBody">It is a frontend library for building UI</div>
+    </div>
+    </div>
+
+    <script type="module">
+    import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+    new Vue({
+        data: {
+            showPanelBody: false
+        },
+        methods: {
+            togglePanel() {
+                this.showPanelBody = !this.showPanelBody;
+            }
+        }
+    }).$mount( '#app' );
+    </script>
+
+*** v-show ***
+<!-- 
+v-show hides and shows through CSS display value
+v-show constructs the panel body at the start irrespective of whether the element is to be shown or hidden
+v-show results is faster switches from hidden to shown and vice versa
+-->
+<div id="app">
+<div class="panel">
+    <div class="panel-heading">What is Vue?</div>
+    <div class="panel-body" v-show="showPanelBody">It is a frontend library for building UI</div>
+</div>
+</div>
+
+<script type="module">
+import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+new Vue({
+    data: {
+        showPanelBody: false
+    }
+}).$mount( '#app' );
+</script>
+
+*** v-if / v-else-if / v-else  ***
+    <div id="app">
+    <template v-if="city === 'Chennai'">
+        <p>Beach</p>
+        <p>Mahabalipuram</p>
+    </template>
+    <template v-else-if="city === 'Bangalore'">
+        <p>Lalbagh</p>
+        <p>Cubbon Park</p>
+    </template>
+    <template v-else>
+        <p>India Gate</p>
+        <p>Connaught Place</p>
+    </template>
+
+    <button @click="switchCity( 'Chennai' )">Chennai</button>
+    <button @click="switchCity( 'Bangalore' )">Bangalore</button>
+    <button @click="switchCity( 'Delhi' )">Delhi</button>
+    </div>
+
+    <script type="module">
+    import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+    new Vue({
+        data: {
+            city: 'Chennai'
+        },
+        methods: {
+            switchCity( city ) {
+                this.city = city;
+            }
+        }
+    }).$mount( '#app' );
+    </script>
+
+*** V-model ***
+    <div id="app">
+        <form @submit.prevent="login">
+            <h2>Login</h2>
+            <!--
+                v-model can be used on input, textarea, select
+                v-model does 2-way data binding
+                    - data flows from view-model to the UI
+                    - user input will flow back to view-model (i.e. data)
+                        - 'input' event for input, 'change' event for select
+                view-model data becomes "single source of truth" for user inputs
+            -->
+            <div>
+                <label for="email">Email</label>
+                <input type="email" v-model="credentials.email" />
+                {{credentials.email}}
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" v-model="credentials.password" />
+                <!-- {{credentials.password}} -->
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </form>
+    </div>
+
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+        new Vue({
+            data: {
+                credentials: {
+                    email: 'john@example.com',
+                    password: ''
+                }
+            },
+            methods: {
+                login() {
+                    this.credentials.email = '';
+                    this.credentials.password = '';
+                }
+            }
+        }).$mount( '#app' );
+    </script>
+
+*** v-on: ***
+    <div id="app">
+        <form v-on:submit="login( $event )">
+            <h2>Login</h2>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" v-model="credentials.email" />
+                {{credentials.email}}
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" v-model="credentials.password" />
+                <!-- {{credentials.password}} -->
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </form>
+    </div>
+
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+        new Vue({
+            data: {
+                credentials: {
+                    email: 'john@example.com',
+                    password: ''
+                }
+            },
+            methods: {
+                login( event ) {
+                    event.preventDefault();
+
+                    this.credentials.email = '';
+                    this.credentials.password = '';
+                }
+            }
+        }).$mount( '#app' );
+    </script>
+
+*** To remove selected city ***
+ <li v-for="city in cities" :key="city">{{city}}</li>
+            </ul>
+            <select v-model="selectedCity">
+                <option value=""></option>
+                <option v-for="city in cities" :key="city" :value="city">{{city}}</option>
+            </select>
+            You selected {{selectedCity}}
+            <div>
+                <button @click="removeCity">Remove selected city</button>
+            </div>
+        </div>
+
+        <script type="module">
+            import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+            new Vue({
+                data: {
+                    selectedCity: '',
+                    cities: [
+                        'Chennai',
+                        'Mumbai',
+                        'Kolkata',
+                        'Delhi'
+                    ]
+                },
+                methods: {
+                    removeCity() {
+                        this.cities = this.cities.filter(city => {
+                            return city !== this.selectedCity
+                        });
+
+                        this.selectedCity = '';
+                    }
+                }
+            }).$mount( '#app' );
+        </script>
