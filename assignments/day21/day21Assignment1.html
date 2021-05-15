@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #login, #register{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="login" @onsubmit="this.event.preventDefault()">
+        <h2> Login </h2>
+        <label for="login-email">Email</label>
+        <input type="text" name="login-email" id="login-email" v-model="email"> {{email}}
+        <label for="login-password">password</label>
+        <input type="password" name="login-password" id="login-password">
+        <button type="submit">Login</button>
+    </form>
+
+
+    <form id="register"  @onsubmit="this.event.preventDefault()" >
+        <h2> Register </h2>
+        <label for="register-email">Email</label>
+        <input type="text" name="register-email" id="register-email" v-model="email"> {{email}}
+        <label for="register-password">password</label>
+        <input type="password" name="register-password" id="register-password" v-model="password">
+        <label for="password">confirm password</label>
+        <input type="password" name="password" id="password" v-model="confirmpassword"><span v-if="password !== confirmpassword"> password doesn't match</span>
+        <button type="submit">Register</button>
+    </form>
+
+
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+        new Vue({
+            data: {
+                email : '',
+                password : ''
+            },
+            methods :{
+                setLoginEmail(event){
+                    this.email = event.data; 
+                }
+            }
+        }).$mount('#login');
+
+        new Vue({
+            data: {
+                email : '',
+                password : '',
+                confirmpassword : ''
+            },
+            methods :{
+                setLoginEmail(event){
+                    this.email = event.data; 
+                }
+            }
+        }).$mount('#register');
+    </script>
+</body>
+</html>

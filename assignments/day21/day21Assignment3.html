@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day21 Assignment3</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+        const calculator = {
+            props : [
+                'number1',
+                'number2',
+                'operator',
+                'calcultedAns'
+            ],
+            methods : {
+                onsubmitEvent(e)
+                {   
+                    e.preventDefault();
+                    
+                    let num1 = Number(this.number1);
+                    let num2 = Number(this.number2);    
+                    var optr = this.operator;
+
+                    if( optr == '+'){
+                        this.calcultedAns = num1 + num2
+                    }
+                    else if( optr == '-'){
+                        this.calcultedAns = num1 - num2;
+                    }
+                    else if( optr == '*'){
+                        this.calcultedAns = num1 * num2;
+                    }
+                    else if( optr == '/'){
+                        this.calcultedAns = num1 / num2;
+                    }
+
+                }
+            },
+            template : `<div id="calc">
+                            <form action="/login" @submit="onsubmitEvent(event)">
+                                <label for="number1">Enter first number</label>
+                                <input type="number" name="number1" v-model="number1">
+                                <label for="number2">Enter second number</label>
+                                <input type="number" name="number2" v-model="number2">
+                                <label for="operator">Operation</label>
+                                <select v-model="operator">
+                                    <option key="+" value="+">+</option>
+                                    <option key="-" value="-">-</option>
+                                    <option key="/" value="/">/</option>
+                                    <option key="*" value="*">*</option>
+                                </select> 
+                                <span>{{calcultedAns}}</span>
+                                <button type="submit">Calculate</button>
+                            </form>
+                        </div>`
+        };  
+
+        new Vue({
+            components : {
+                calculator
+            },
+            template : `<div>
+                <calculator />
+                </div>`
+        }).$mount('#app');
+    </script>
+</body>
+</html>
+

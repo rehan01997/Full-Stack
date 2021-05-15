@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day21 - Assignment2</title>
+    <style>
+        #login , #register{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+      
+    </div>
+
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+        const LoginForm = {
+            props: [
+                    'email', /* string prop */
+                    'password' /* object prop */
+                ],
+            template: `<form id="login" @onsubmit="preventEvent($event)">
+                            <h2> Login </h2>
+                            <label for="login-email">Email</label>
+                            <input type="text" name="login-email" id="login-email" v-model="email"> {{email}}
+                            <label for="login-password">password</label>
+                            <input type="password" name="login-password" id="login-password">
+                            
+                        </form>`
+        };
+
+        const SignupForm = {
+            props: [
+                    'email', 
+                    'password',
+                    'confirmpassword' 
+                ],
+            template: ` <form id="register"  @onsubmit="preventEvent($event)" >
+                            <h2> Register </h2>
+                            <label for="register-email">Email</label>
+                            <input type="text" name="register-email" id="register-email" v-model="email"> {{email}}
+                            <label for="register-password">password</label>
+                            <input type="password" name="register-password" id="register-password" v-model="password">
+                            <label for="password">confirm password</label>
+                            <input type="password" name="password" id="password" v-model="confirmpassword"><span v-if="password !== confirmpassword"> password doesn't match</span>
+                            <button type="submit">Register</button>
+                        </form>`
+        };
+
+        const combinedComponents = {
+            props: [
+                'hasConfirmed'
+            ],
+            components : {
+                login : LoginForm,
+                register : SignupForm
+            },
+            template :  `<div>
+                            <login />
+                            <register />
+                        </div>`,
+            methods: {
+                
+            }
+        };
+
+        new Vue({
+            components: {
+                    combinedComponents, 
+                },
+            data : {
+                password : '',
+                confirmpassword : '',
+                checkPassword : false
+            },
+            methods:{
+                preventEvent(event)
+                {
+                    this.event.preventDefault();
+                }
+            },
+            template : `
+                <combinedComponents :hasConfirmed="checkPassword" />`
+        }).$mount("#app");
+
+    </script>
+</body>
+</html>

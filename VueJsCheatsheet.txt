@@ -321,3 +321,484 @@ new Vue({
                 }
             }).$mount( '#app' );
         </script>
+
+*** capturing and Bubbling ***
+    Bubbling : When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+    capturing : top -down ( top to final button clicked )
+            to stop propagation : event.stopImmediatePropagation()
+       
+        <form>FORM
+        <div>DIV
+        <p>P</p>
+        </div>
+        </form>
+
+        <script>
+        for(let elem of document.querySelectorAll('*')) {
+        elem.addEventListener("click", e => alert(`Capturing: ${elem.tagName}`), true);
+        elem.addEventListener("click", e => alert(`Bubbling: ${elem.tagName}`));
+        }
+        </script>
+
+*** Event Modifiers ***
+https://vuejs.org/v2/guide/events.html#Event-Modifiers
+
+    It is a very common need to call event.preventDefault() or event.stopPropagation() inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.
+
+    .stop
+    .prevent
+    .capture
+    .self
+    .once
+    .passive
+    <!-- the click event's propagation will be stopped -->
+    <a v-on:click.stop="doThis"></a>
+
+    <!-- the submit event will no longer reload the page -->
+    <form v-on:submit.prevent="onSubmit"></form>
+
+    <!-- modifiers can be chained -->
+    <a v-on:click.stop.prevent="doThat"></a>
+
+    <!-- just the modifier -->
+    <form v-on:submit.prevent></form>
+
+    <!-- use capture mode when adding the event listener -->
+    <!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+    <div v-on:click.capture="doThis">...</div>
+
+    <!-- only trigger handler if event.target is the element itself -->
+    <!-- i.e. not from a child element -->
+    <div v-on:click.self="doThat">...</div>
+
+*** to select option fomr list ***
+    <select v-model="selectedCity">
+        <option value=""></option>
+        <option v-for="city in cities" :key="city" :value="city">{{city}}</option>
+    </select>
+
+*** computed ***
+    ar vm = new Vue({
+    el: '#example',
+    data: {
+        message: 'Hello'
+    },
+    computed: {
+        // a computed getter
+        reversedMessage: function () {
+        // `this` points to the vm instance
+        return this.message.split('').reverse().join('')
+        }
+    }
+    }
+
+*** Watch ***
+    // watch for changes on certain peroperty and do something
+    new Vue({
+        data: {
+            firstName: 'John',
+            lastName: 'Doe',
+            completeName: 'John Doe'
+        },
+    
+        watch: {
+            firstName() {
+                console.log( 'firstName changed' );
+                this.completeName = this.firstName + ' ' + this.lastName;
+            },
+            lastName() {
+                console.log( 'lastName changed' );
+                this.completeName = this.firstName + ' ' + this.lastName;
+            }
+        }
+    }).$mount( '#app' );
+
+*** When to apply css ***
+    <style>
+        .bold {
+            font-weight: bold;
+        }
+
+        .error {
+            color: purple;
+        }
+    </style>
+    </head>
+    <body>
+        <div id="app">
+            <div
+                :class="messageClasses">        
+                    {{message}}
+            </div>
+        </div>
+
+        <script type="module">
+            import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+            new Vue({
+                el: '#app',
+                data: {
+                    isBold: true,
+                    isError: true,
+                },
+                computed: {
+                    messageClasses() {
+                        return {
+                            /* name_of_class: condition_when_to_apply_class */
+                            error: this.isError,            // if true it adds class
+                            bold: this.isBold
+                        };
+                    }
+                },
+            });
+
+*** components into global registration *** components
+
+        <div id="app">
+            <!-- kebab-cased version of components is used -->
+            <!-- <app-header></app-header> -->
+        </div>
+
+        <script type="module">
+            import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.js';
+
+            // Components - like custom HTML elements
+            // reusable pieces of the UI - each instance will have its own data
+            // the data property defines function that returns the data for the instance
+
+            const brandNameComponent = {
+                template: `
+                    <span>
+                        ABC Consulting
+                    </span>
+                `
+            }
+            
+            const headerComponent = {
+                // local registration of the component
+                components: {
+                    Brand: brandNameComponent
+                },
+                data() {
+                    return {
+                        message: 'Hello'
+                    };
+                },
+                template: `
+                    <div>
+                        <brand />
+                        {{message}}
+                    </div>
+                `
+            };
+            
+        
+            // global registration - for components that are used across an app
+
+            Vue.component(
+                'AppHeader', // AppHeader or app-header
+                headerComponent
+            );
+
+            // one root instance
+            new Vue({
+                el: '#app',
+                // Use kebab-case or CamelCase version of the component name
+                template: `
+                    <div id="app">
+                        <AppHeader />                       
+                    </div>
+                `
+            });
+
+*** passing props - creating local copy to the recieved props ***
+
+<div id="app"></div>
+
+        <script type="module">
+            import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+            /* props semantics: primitives are passed by value, objects / arrays are passed by reference */
+            /* CAUTION: changing props is very bad practice - leads to a lot of difficult to debug bugs */
+            /* If at all you want to modify received props - make a copy of it locally */
+            const WeatherReportComponent = {
+                props: [
+                    'cityName', /* string prop */
+                    'city' /* object prop */
+                ],
+                data() {
+                    return {
+                        // create a local copy of the received prop so that you can change at will
+                        myCity: {
+                            ...this.city,
+                            lastFiveDaysRainfall: [
+                                ...this.city.lastFiveDaysRainfall
+                            ]
+                        }
+                    };
+                },
+                template: `
+                    <div>
+                        <h2>cityName: {{cityName}}</h2>
+                        <h2>city.name: {{myCity.name}}</h2>
+                        <div>
+                            cityName: <input type="text" v-model="cityName" /> 
+                        </div>
+                        <div>
+                            city.name: <input type="text" v-model="myCity.name" /> 
+                        </div>
+                    </div>
+                `
+            }
+
+            /* We pass data to child components as custom attributes ("props") */
+            new Vue({
+                el: '#app',
+                components: {
+                    WeatherReportComponent, // WeatherReportComponent: WeatherReportComponent
+                },
+                data: {
+                    selectedIndex: 0,
+                    cities: [
+                        {
+                            name: 'Bangalore',
+                            min: 25,
+                            max: 38,
+                            rainfall: 5,
+                            lastFiveDaysRainfall: [
+                                0, 5, 8, 10, 0
+                            ]
+                        },
+                        {
+                            name: 'Mumbai',
+                            min: 25,
+                            max: 38,
+                            rainfall: 5,
+                            lastFiveDaysRainfall: [
+                                0, 5, 8, 10, 0
+                            ]
+                        }
+                    ]
+                },
+                template: `
+                    <div>
+                        <ul>
+                            <li v-for="city of cities">{{city.name}}</li>
+                        </ul>
+                        <select v-model="selectedIndex">
+                            <option v-for="( city, index ) in cities" :value="index">{{city.name}}</option>
+                        </select>
+                        Selected index: {{selectedIndex}}
+                        <WeatherReportComponent :cityName="cities[selectedIndex].name" :city="cities[selectedIndex]" />
+                    </div>
+                `
+            });
+        </script>
+
+
+*** bind components in two ways ***
+            new Vue({
+                el: '#app',
+                components: {
+                    WeatherReportComponent, // WeatherReportComponent: WeatherReportComponent
+                },
+                data: {
+                    selectedIndex: 0,
+                    cities: [
+                        {
+                            name: 'Bangalore',
+                            min: 25,
+                            max: 38,
+                            rainfall: 5,
+                            lastFiveDaysRainfall: [
+                                0, 5, 8, 10, 0
+                            ]
+                        },
+                        {
+                            name: 'Mumbai',
+                            min: 30,
+                            max: 40,
+                            rainfall: 5,
+                            lastFiveDaysRainfall: [
+                                0, 5, 8, 10, 0
+                            ]
+                        }
+                    ]
+                },
+                template: `
+                    <div>
+                        <ul>
+                            <li v-for="city of cities">{{city.name}}</li>
+                        </ul>
+                        <select v-model="selectedIndex">
+                            <option v-for="( city, index ) in cities" :value="index">{{city.name}}</option>
+                        </select>
+                        Selected index: {{selectedIndex}}
+                        
+                        <WeatherReportComponent                                 // 1) first ways
+                            :name="cities[selectedIndex].name"
+                            :min="cities[selectedIndex].min"
+                            :max="cities[selectedIndex].max"
+                            :rainfall="cities[selectedIndex].rainfall"
+                            :lastFiveDaysRainfall="cities[selectedIndex].lastFiveDaysRainfall"
+                        />
+                      
+                        <!-- take each of properties of cities[selectedIndex] and pass them down as props -->
+                        <WeatherReportComponent v-bind="cities[selectedIndex]" />       // 2) second ways
+                    </div>
+                `
+            });
+
+*** Multiple components in one components ***
+        <div id="app">
+            <!-- kebab-cased version of components is used -->
+            <!-- <app-header></app-header> -->
+        </div>
+
+        <script type="module">
+            import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.js';
+
+            // Components - like custom HTML elements
+            // reusable pieces of the UI - each instance will have its own data
+            // the data property defines function that returns the data for the instance
+            const brandNameComponent = {
+                template: `
+                    <span>
+                        ABC Consulting
+                    </span>
+                `
+            }
+            
+            const headerComponent = {
+                // local registration of the component
+                components: {
+                    Brand: brandNameComponent
+                },
+                data() {
+                    return {
+                        message: 'Hello'
+                    };
+                },
+                template: `
+                    <div>
+                        <brand />
+                        {{message}}
+                    </div>
+                `
+            };
+            
+            const footerComponent = {
+                data() {
+                    return {
+                        message: '&copy; ABC Consulting'
+                    };
+                },
+                template: `
+                    <div v-html="message"></div>
+                `
+            };
+
+            // global registration - for components that are used across an app
+            // Vue.component(
+            //     'BrandName', // AppHeader or app-header
+            //     brandNameComponent
+            // );
+
+            Vue.component(
+                'AppHeader', // AppHeader or app-header
+                headerComponent
+            );
+            
+            Vue.component(
+                'AppFooter',
+                footerComponent
+            );
+
+            // one root instance
+            new Vue({   
+                el: '#app',
+                // Use kebab-case or CamelCase version of the component name
+                template: `
+                    <div id="app">
+                        <AppHeader />
+                       
+                    </div>
+                `
+            });
+
+*** calculator - using components ***
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day21 Assignment3</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module">
+        import Vue from 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.esm.browser.min.js';
+
+        const calculator = {
+            props : [
+                'number1',
+                'number2',
+                'operator',
+                'calcultedAns'
+            ],
+            methods : {
+                onsubmitEvent(e)
+                {   
+                    e.preventDefault();
+                    
+                    let num1 = Number(this.number1);
+                    let num2 = Number(this.number2);    
+                    var optr = this.operator;
+
+                    if( optr == '+'){
+                        this.calcultedAns = num1 + num2
+                    }
+                    else if( optr == '-'){
+                        this.calcultedAns = num1 - num2;
+                    }
+                    else if( optr == '*'){
+                        this.calcultedAns = num1 * num2;
+                    }
+                    else if( optr == '/'){
+                        this.calcultedAns = num1 / num2;
+                    }
+
+                }
+            },
+            template : `<div id="calc">
+                            <form action="/login" @submit="onsubmitEvent(event)">
+                                <label for="number1">Enter first number</label>
+                                <input type="number" name="number1" v-model="number1">
+                                <label for="number2">Enter second number</label>
+                                <input type="number" name="number2" v-model="number2">
+                                <label for="operator">Operation</label>
+                                <select v-model="operator">
+                                    <option key="+" value="+">+</option>
+                                    <option key="-" value="-">-</option>
+                                    <option key="/" value="/">/</option>
+                                    <option key="*" value="*">*</option>
+                                </select> 
+                                <span>{{calcultedAns}}</span>
+                                <button type="submit">Calculate</button>
+                            </form>
+                        </div>`
+        };  
+
+        new Vue({
+            components : {
+                calculator
+            },
+            template : `<div>
+                <calculator />
+                </div>`
+        }).$mount('#app');
+    </script>
+</body>
+</html>
+
