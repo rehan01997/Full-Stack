@@ -1,3 +1,11 @@
+www.webpack.js.org  --- bundle your scritp
+cli.vuejs.org       --- same bundlww yputr script
+
+install extension vetur
+1) install cli  ---> npm i -g @vue/cli
+2) vue create workshop-app
+3) npm run serve
+4) bootstrap -- npm i bootstrap@4
 *** mount *** 
 
     <div id="app">
