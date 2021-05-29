@@ -1,0 +1,6 @@
+*** align text left ***
+    text-left
+
+*** align item left right ***
+    <div class="d-flex justify-content-between">
+

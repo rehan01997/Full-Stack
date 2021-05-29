@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="app">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.js"></script>
+
+    <script type="module">
+        import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js';
+        import Vuex from 'https://cdn.jsdelivr.net/npm/vuex@3.6.2/dist/vuex.esm.browser.js';
+
+        Vue.use( Vuex );
+
+        const moduleShopping = {
+            state : {
+                name : "shoppingcard1"
+            },
+            mutations : {
+                setshoppingname( state , payload){
+                    state.name = payload
+                }
+            },
+            actions : {
+                setshopping( context , payload){
+                    context.commit( 'setshoppingname', payload);
+                }
+            }
+        }
+        const checkout = {
+            state : {
+                name : "products1"
+            },
+            mutations : {
+                setcheckout( state , payload){
+                    state.name = payload
+                }
+            },
+            actions : {
+                setcheckoutproducts( context , payload){
+                    context.commit( 'setcheckout', payload);
+                }
+            }
+        }
+
+        const productCatalog = {
+            state : {
+                name : "product1 catalog"
+            },
+            mutations : {
+                setproductcatalog( state , payload){
+                    state.name = payload
+                }
+            },
+            actions : {
+                setproductcat( context , payload){
+                    context.commit( 'setproductcatalog', payload);
+                }
+            }
+        }
+
+        const store = new Vuex.Store({
+            modules: {
+                moduleShoppingCard: moduleShopping,
+                checkoutproduct : checkout,
+                productcatalog : productCatalog
+            }
+        })
+        
+        const AppHome = {
+            template:`  <div class="container">
+                            <h2>Shopping name : {{shoppingvalue}}</h2>
+                            <div class="form-group">
+                                <label for="change-shoppingname">Change shopping name</label>
+                                <input type="text" v-model="shoppingname" />
+                                <button @click="setShoppingName" class="btn btn-dark btn-sm">Change</button>
+                            </div>
+                            
+                            <h2 class="mt-4">Checkout products : {{checkoutproduct}}</h2>
+                            <div class="form-group">
+                                <label for="change-checkout">Change checkout products</label>
+                                <input type="text" v-model="checkout" />
+                                <button @click="setCheckoutName" class="btn btn-dark btn-sm">Change</button>
+                            </div>
+                            
+                            <h2 class="mt-4">Checkout products : {{productCatalogvalue}}</h2>
+                            <div class="form-group">
+                                <label for="change-checkout">Product Catalog</label>
+                                <input type="text" v-model="productcatalog" />
+                                <button @click="setproductcatalog" class="btn btn-dark btn-sm">Change</button>
+                            </div>
+                        </div>`,
+            data() {
+                return {
+                    shoppingname : "",
+                    checkout : "",
+                    productcatalog : ""
+                };
+            },
+            computed: {
+                shoppingvalue(){
+                    return store.state.moduleShoppingCard.name;
+                },
+                checkoutproduct(){
+                    return store.state.checkoutproduct.name;
+                },
+                productCatalogvalue()
+                {
+                    return store.state.productcatalog.name;
+                }
+            },
+            methods : {
+                setShoppingName(){
+                    store.dispatch('setshopping', this.shoppingname);
+                },
+                setCheckoutName(){
+                    store.dispatch('setcheckoutproducts', this.checkout);
+                },
+                setproductcatalog(){
+                    store.dispatch('setproductcat', this.productcatalog);
+                }
+            }
+        };
+        new Vue({
+            el : '#app',
+            components : {
+                AppHome
+            },
+            template: `
+                    <div id="app" class="container my-4">
+                        <h1>E-Commerce</h1>
+                        <hr />
+                        <AppHome />
+                    </div>
+            `
+        });
+    </script>
+</body>
+</html>

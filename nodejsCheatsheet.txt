@@ -1,5 +1,6 @@
 npmjs.com
-
+date-fns
+rfxs 
 node --version
 npm init -y
 
@@ -478,5 +479,252 @@ class Person {
     localStorage.getItem('name' , 'rehan');
     localStorage.removeItem('name' , 'rehan');
 
-***  
+####   NODE JS ######
+*** Create Server ****
+    const http = require( 'http' ); // require can be called anywhere
+    // import http from 'http';
 
+    // the function passed is called when there is an incoming HTTP request
+    const server = http.createServer(( req, res ) => {
+        res.write( 'Hello, world! ' );
+        res.write( 'How are you? ' );
+
+        // We MUST end the request
+        // ends the response -> we cannot write() after end()
+        res.end( 'Bye for now...' );
+
+        // error
+        // res.write( 'Writing after ending the response' );
+    });
+
+    // starts the server on port 3000
+    server.listen( 3000 );
+
+*** Another way create server ***
+    const http = require( 'http' );
+
+    const server = http.createServer( /* handler for 'request' event is added later */ );
+
+    // you can read environment variables - you cannot set
+    const PORT = process.env.PORT || 3000;
+
+    // server.listen() is an async function
+    server.listen( PORT );
+
+    // server is an "event emitter"
+    // server.addListener / server.on
+
+    // event 'request' is fired when HTTP request comes in (from browser)
+    server.on( 'request', ( req, res ) => {
+        res.end( 'Hello' );
+    });
+
+    // event 'listening' fires after server starts listening
+    // once will remove the event handler function after the event occurs first time, and the function executes
+    server.once( 'listening', () => {
+        console.log( `Check http://localhost:${PORT}` )
+    });
+
+    // 'error' event is a special event (EventEmitter objects treat 'error' event specially)
+    server.on( 'error', ( error ) => {
+        console.error( error.message );
+    });
+
+*** server - http url ***
+    const http = require( 'http' );
+    const url = require( 'url' );
+
+    const server = http.createServer(( req /* IncomingMessage */, res /* ServerResponse */ ) => {
+        console.log( req.url );
+
+        // If we pass true -> it parses the query string (else it does not)
+        const urlParts = url.parse( req.url, true );
+        console.log( urlParts );
+        
+        for( let key in urlParts.query ) {
+            res.write( `You sent ${key} with value ${urlParts.query[key]}\n` );
+        }
+        res.end( 'The pathname is ' + urlParts.pathname );
+    });
+
+    const PORT = process.env.PORT || 3000;
+
+    server.listen( PORT );
+
+    server.once( 'listening', () => {
+        console.log( `Check http://localhost:${PORT}` )
+    });
+
+    server.on( 'error', ( error ) => {
+        console.Error
+    
+*** set the url ***
+    if( urlParts.pathname === '/home' ) {
+            // we need to redirect
+            // 3xx - redirect request
+            // For Permanent moved redirection, we use 301
+
+            // The browser will make a fresh request to '/' when it receives a redirect response
+        res.statusCode = 301;
+        res.setHeader( 'Location', '/' );
+        res.end();
+        return;
+    }
+
+*** file system read ***
+    const fs = require( 'fs' );
+    const path = require( 'path' );
+
+    console.log( __dirname );
+    console.log( __filename );
+
+                // __dirname, __filename
+    const referenceFilePath = path.join( __dirname, 'references.md' );
+
+                // readFile() is an async function (the callback does not immediately execute)
+    fs.readFile( referenceFilePath, ( error, contents ) => {
+        if( error ) {
+            console.error( error.message );
+            return;
+        }
+
+                // contents is a buffer object
+        console.log( contents.toString( 'utf8' ) );
+    });
+
+    console.log( 'end of script' );
+            OR 
+    const contents = fs.readFileSync( referenceFilePath, 'utf-8' );
+
+*** Methods **
+    const server = http.createServer(( req, res ) => {
+    const urlParts = url.parse( req.url, true );
+    const method = req.method.toLowerCase();
+
+    // home page request
+    if( method === 'get'  && urlParts.pathname === '/' ) {
+        fs.readFile( path.join( __dirname, '01-handling-post-request.html' ), 'utf-8', ( error, contents ) => {
+            if( error ) {
+                res.statusCode = 500;
+                res.end( 'Some error' );
+                return;
+            }
+            
+            res.end( contents );
+        });
+    }
+
+    // POST form
+    if( method === 'post' && urlParts.pathname === '/shorturls' ) {
+        let buffer = '';
+
+        req.on( 'data', chunk => {
+            buffer += chunk;
+        });
+
+        req.on( 'end', () => {
+            // buffer will be data posted form form (URL encoded format - key=value&key=value&...)
+            console.log( buffer );
+            
+            const parsedData = querystring.parse( buffer );
+            console.log( parsedData );
+
+            res.end( 'URL noted and short url shall be generated' );
+        });
+    }
+});
+
+*** Write file ****
+    fs.writeFileSync( path.join( __dirname, 'hello.txt' ), 'Hello, world', { encoding: 'utf8', flag: 'a' } );   //
+    fs.writeFile( path.join( __dirname, 'hello.txt' ), 'Hello, world', { encoding: 'utf8', flag: 'a' }, error => {
+        if( error ) {
+            console.error( `Some error occured` );
+            console.error( error.message );
+            return;
+        }
+    });
+
+*** Append File ***
+    fs.appendFile( path.join( __dirname, 'hello.txt' ), 'Hello, world', { encoding: 'utf8' }, error => {
+        if( error ) {
+            console.error( `Some error occured` );
+            console.error( error.message );
+            return;
+        }
+    });
+
+**** Read Dir ***
+    const path = __dirname;
+    fs.readdir(path, (err, files) => {
+        if( err ) {
+            console.error( error.message );
+            return;
+        }
+        files.forEach(file => {
+            console.log(file);
+        });
+    });
+
+**** Read read file stream -- Big file ****
+    const rs = fs.createReadStream( bigFilePath, { encoding: 'utf-8', highWaterMark: 32 * 1024 } );
+    let count = 1;
+            // When the reading starts, and a chunk of data has been read, call the callback function
+    rs.on( 'data', chunk => {
+        console.log( 'chunk ' + count );
+        count++;
+                // console.log( chunk.toString( 'utf8' ).substr( 0, 100 ) );
+        console.log( chunk.substr( 0, 100 ) );
+    });
+            // When the reading starts, and a chunk of data has been read, call the callback function
+    rs.on( 'end', () => {
+        console.log( 'file has been read' );
+    });
+            // start reading
+    rs.read();
+
+*** Write File stream ***
+    const ws = fs.createWriteStream( path.join( __dirname, 'hello.txt' ), { encoding: 'utf-8', flags: 'a' } );
+    ws.write( 'World' );
+    ws.end();
+
+*** Copy file from src to dest ***
+    const src_path = path.join(__dirname, 'hello.txt');
+    const dest_path = path.join(__dirname, 'hello_copy.txt');
+
+    rs = fs.createReadStream(src_path, {encoding: 'utf-8'});
+    ws = fs.createWriteStream(dest_path, {encoding: 'utf-8'});
+
+    rs.on('data', chunk=>{
+        ws.write(chunk);
+    })
+
+    rs.on('end',()=>{
+        ws.end();
+        console.log('File copied successfully');
+    })
+
+    rs.read()
+
+*** Copy file from src to dest --- another way ***
+    rs = fs.createReadStream(src_path, {encoding: 'utf-8'});
+    ws = fs.createWriteStream(dest_path, {encoding: 'utf-8'});
+
+    rs.pipe( ws );
+
+*** Serving data from file to server ****
+    const src_file = path.join(__dirname, 'hello.txt');
+    const server = http.createServer((req, res)=>{
+        const rs = fs.createReadStream(src_file,{encoding: 'utf-8'} )
+        rs.pipe(res);
+    });
+    server.listen(3000);
+
+**** Capturing data from server using pipe****
+    const server = http.createServer( ( req,res )=>{
+        const ws = fs.createWriteStream( srcPath ,{encoding: 'utf8', flags: 'a' });
+        req.pipe(ws);
+
+        res.end( 'Your details have been captured' );
+    })
+
+    server.listen(4000);

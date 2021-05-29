@@ -6,6 +6,13 @@ install extension vetur
 2) vue create workshop-app
 3) npm run serve
 4) bootstrap -- npm i bootstrap@4
+
+** Date picker ***   npm install js-datepicker
+
+
+validators : npm install --save vuelidate/lib/validators
+router     : npm install --save vue-router
+   
 *** mount *** 
 
     <div id="app">
@@ -810,3 +817,332 @@ https://vuejs.org/v2/guide/events.html#Event-Modifiers
 </body>
 </html>
 
+*** filter ***
+    var temp = this.WeatherData.filter(weatherD => 
+            {
+                return weatherD.name.toLowerCase().includes(event.toLowerCase())
+            });
+
+*** VueX ***
+
+// module assets
+    state: () => ({ ... }), // module state is already nested and not affected by namespace option
+    getters: {
+        isAdmin () { ... } // -> getters['account/isAdmin']
+    },
+    actions: {
+        login () { ... } // -> dispatch('account/login')
+    },
+    mutations: {
+        login () { ... } // -> commit('account/login')
+
+    ######################################################################
+// Include Vuex
+import Vuex from 'https://cdn.jsdelivr.net/npm/vuex@3.6.2/dist/vuex.esm.browser.js';
+
+// Use Vuex in Vue (Vue.use())
+Vue.use( Vuex );
+
+ // Define store with state and mutations
+const store = new Vuex.Store({
+    state: {                                            // data
+        value: 0
+    },
+    // a mutation is a setter for a piece of state
+    // No asynchronous logic should be written in mutations
+    mutations: {                                        // methods
+        decrement( state ) {
+            state.value--;
+        },
+        increment( state ) {
+            state.value++;
+        }
+    }
+});
+
+// 
+computed: {
+    value() {
+        return store.state.value;    // get value
+    }
+},
+
+// Define methods that commit mutations
+methods: {
+    function() {
+        store.commit( 'decrement' );    // call method from store
+        store.commit( 'increment' );    
+    }
+}
+
+*** vue actions / dispatch ***
+    const store = new Vuex.Store({
+            
+            // Add ```processing``` state property
+            state: {
+                processing: false,
+                value: 0
+            },
+
+            // Define setProcessing mutation, that sets the value based on payload
+            mutations: {            // method
+                increment( state ) {
+                    state.value++;
+                },
+                decrement( state ) {
+                    state.value--;
+                },
+                setProcessing( state, payload ) {
+                    state.processing = payload;
+                }
+            },
+
+            // Add actions for increment and decrement - use setTimeout() to simulate a delay due to an async action
+            // Commit appropriate mutations at appropriate times
+            // context object is like store object (but not exactly the same)
+            actions: {
+                decrement( context ) { // has reference to state, getter, mutations
+
+                    mutation are tracked by Vue dev tools and hence preferred to direct manipulation of state
+                    context.state.processing = true;
+                    context.commit( 'setProcessing', true );
+
+                    setTimeout(() => {
+                         context.commit( 'decrement' );
+                         context.commit( 'setProcessing', false );
+                    }, 2000);
+                },
+                increment( context ) {
+                    context.commit( 'setProcessing', true );
+
+                    setTimeout(() => {
+                            context.commit( 'setProcessing', false );
+                    }, 2000);
+                },
+            }
+        });
+        // Add methods that "dispatch" actions
+        methods: {
+            decrement() {
+                // actions are dispatched
+                store.dispatch( 'decrement' );      // call to actions
+            },
+            increment() {
+                store.dispatch( 'increment' );
+            }
+        }
+
+*** Vuex - api call ***
+<script type="module">
+        import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js';
+        import Vuex from 'https://cdn.jsdelivr.net/npm/vuex@3.6.2/dist/vuex.esm.browser.js';
+
+        function fetchWorkshops() {
+            return axios.get( `http://workshops-server.herokuapp.com/workshops` )
+                        .then( response => response.data );
+        }
+
+        Vue.use( Vuex );
+
+        // Define a store
+        // Add appropriate state properties
+        // Add necessary mutations (that accept payload)
+        // Add an action, say fetchWorkshops, that fetches workshops and returns a promise
+        const store = new Vuex.Store({
+            state: {
+                processing: false,
+                workshops: [],
+                error: null
+            },
+            mutations: {
+                setProcessing( state, payload ) {
+                    state.processing = payload.processing;
+                },
+                setWorkshops( state, payload ) {
+                    state.workshops = payload.workshops;
+                },
+                setError( state, payload ) {
+                    state.error = payload.error;
+                }
+            },
+            actions: {
+                // We can return a Promise from an action -> this allows us to execute some logic in the caller
+                fetchWorkshops( { commit } ) {
+                    // Alternative style for committing
+                    // https://vuex.vuejs.org/guide/mutations.html#object-style-commit
+                    commit({
+                        type: 'setProcessing',
+                        processing: true
+                    });
+
+                    return fetchWorkshops()
+                                .then( workshops => {
+                                    commit({
+                                        type: 'setProcessing',
+                                        processing: false
+                                    });
+                                    commit({
+                                        type: 'setWorkshops',
+                                        workshops
+                                    });
+
+                                    return workshops;
+                                })
+                                .catch( error => {
+                                    commit({
+                                        type: 'setProcessing',
+                                        processing: false
+                                    });
+                                    commit({
+                                        type: 'setError',
+                                        error
+                                    });
+
+                                    throw error;
+                                });
+                }
+            }
+        });
+
+        const WorkshopsList = {
+            template: `
+                <div>
+                    <h1>List of workshops</h1>
+                    <hr />
+                    <div class="alert alert-info" role="alert" v-if="processing">
+                        <strong>We are fetching workshops...Hang on!</strong>
+                    </div>
+                </div>
+            `,
+            
+            // Set up computed properties
+            computed: {
+                processing() {
+                    return store.state.processing;
+                },
+                workshops() {
+                    return store.state.workshops;
+                },
+                error() {
+                    return store.state.error;
+                }
+            },
+            
+            // Helper method for styling the mode display of a workshop
+            methods: {
+                available( workshop, mode ) {
+                    return {
+                        'badge-success': workshop.modes[mode],
+                        'badge-secondary': !workshop.modes[mode]
+                    }
+                }
+            },
+            
+            created() {
+                // Dispatch fetchWorkshops action -> log on success and error
+                // The action returns a Promise -> this allows us to do something after the action complete
+                store.dispatch( 'fetchWorkshops' )
+                    .then( workshops => console.log( workshops ) )
+                    .catch( error => console.log( error ) );
+            }
+        };
+
+        new Vue({
+            el: '#app',
+            components: {
+                WorkshopsList
+            },
+            template: `
+                <div id="app" class="container my-4">
+                    <WorkshopsList />
+                </div>
+            `,
+        });
+    </script>
+
+
+*** Vuex Getters ****
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.js"></script>
+
+    <script type="module">
+        import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js';
+        import Vuex from 'https://cdn.jsdelivr.net/npm/vuex@3.6.2/dist/vuex.esm.browser.js';
+
+        function fetchWorkshops() {
+            return axios.get( `http://workshops-server.herokuapp.com/workshops` )
+                        .then( response => response.data );
+        }
+
+        Vue.use( Vuex );
+
+        const store = new Vuex.Store({
+            state: {
+                workshops: []
+            },
+
+            // Define numWorkshops getter - it receives a "getters" object as the second argument. From numWorkshops() return an object wih shape { any: number, online: number, inPerson: number }
+            getters: {                          // get number of online/inperson length
+                numWorkshops( state/*, getters */ ) {           
+                    return {
+                        any: state.workshops.length,
+                        online: state.workshops.filter( w => w.modes.online ).length,
+                        inPerson: state.workshops.filter( w => w.modes.inPerson ).length
+                    };
+                }
+            },
+            mutations: {
+                workshops( state, payload ) {
+                    state.workshops = payload;
+                }
+            },
+            actions: {
+                fetchWorkshops( context, payload ) {
+                    return fetchWorkshops()
+                        .then( workshops => {
+                            context.commit( 'workshops', workshops );
+                            return workshops;
+                        })
+                        .catch( error => {
+                            context.commit( 'error', error );
+                            throw error;
+                        });
+                }
+            }
+        });        
+        const WorkshopsList = {
+            template: `
+                <div>
+                    <h1>List of workshops</h1>
+                    <hr />
+                    <div class="alert alert-info" role="alert" v-if="processing">
+                        <strong>We are fetching workshops...Hang on!</strong>
+                    </div>
+                </div>
+            `,            
+            // Add numWorkshops to expose store.getters.numWorkshops
+            computed: {
+                numWorkshops() {
+                    return store.getters.numWorkshops;              // calling getter function
+                }
+            },
+            methods: {
+            },
+            created() {
+                store.dispatch( 'fetchWorkshops' )
+                    .then( workshops => console.log( 'received : ', workshops ) )
+                    .catch( error => console.log( 'error : ', error.message ) );
+            }
+        };
+
+        new Vue({
+            el: '#app',
+            components: {
+                WorkshopsList
+            },
+            template: `
+                <div id="app" class="container my-4">
+                    <WorkshopsList />
+                </div>
+            `,
+        });
+    </script>
