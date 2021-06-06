@@ -1,0 +1,4 @@
+// install nodemon   --- > npm i nodemon
+"Scripts" : "nodemon ."
+
+
