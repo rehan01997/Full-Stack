@@ -1,4 +1,38 @@
+npm i express
+
 // install nodemon   --- > npm i nodemon
 "Scripts" : "nodemon ."
 
+*** express ***
+    // npm init -y
+    // npm install express
 
+    const express = require( 'express' );
+    const path = require( 'path' );
+
+    // Application object
+    const app = express();
+
+    // app.all(), app.get(), app.post(), app.put(), app.delete(), app.patch()
+    // app.get( '/', ( req, res/*, next */ ) => {
+    //     // res.write( 'Hello, world' );
+    //     // res.end();
+        
+    //     // Adds HTTP header - 'Content-Type: 'text/html'
+    //     // just like send(), you have json(), redirect(), sendFile() etc.
+    //     res.send( 'Hello, world' );
+    // });
+
+    app.get( '/', ( req, res ) => {
+        res.sendFile( path.join( __dirname, 'views', 'index.html' ) );
+    });
+
+    const PORT = process.env.PORT || 3000;
+
+    app.listen(PORT, error => {
+        if( error ) {
+            return console.error( error.message );
+        }
+
+        console.log( `Server started on http://localhost:${PORT}` );
+    });
